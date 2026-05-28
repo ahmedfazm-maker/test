@@ -25,7 +25,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Nunito+Sans:wght@200;300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="https://js-eu1.hsforms.net/forms/embed/147550228.js" defer></script>
 <style>
 /* ═══ DESIGN SYSTEM ═══
    --ink    #070C0C   wall bg
@@ -481,7 +480,54 @@ body.hov #cur-r{width:56px;height:56px;border-color:var(--teal)}
 }
 .join-ht em{font-style:italic;color:var(--teal);font-weight:300}
 .join-p{font-size:15px;line-height:1.8;color:var(--dim);max-width:420px;margin:0 auto 40px}
-.hs-form-frame{max-width:480px;margin:0 auto}
+/* Custom VW Google Form */
+.vw-form-wrap{max-width:520px;margin:0 auto}
+.vw-form{display:flex;flex-direction:column;gap:16px}
+.vw-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.vw-field{display:flex;flex-direction:column;gap:7px}
+.vw-field label{
+  font-family:'Chakra Petch',sans-serif;font-weight:500;
+  font-size:9px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--dim)
+}
+.vw-field input,.vw-field select{
+  background:var(--ink2);border:1px solid rgba(41,190,156,.2);
+  color:var(--mint);font-family:'Nunito Sans',sans-serif;font-weight:300;
+  font-size:14px;padding:13px 16px;outline:none;
+  -webkit-appearance:none;appearance:none;
+  transition:border-color .25s,box-shadow .25s;width:100%
+}
+.vw-field input:focus,.vw-field select:focus{
+  border-color:rgba(41,190,156,.6);box-shadow:0 0 0 2px rgba(41,190,156,.1)
+}
+.vw-field input::placeholder{color:var(--dimmer)}
+.vw-sel-wrap{position:relative}
+.vw-sel-wrap::after{
+  content:'';position:absolute;right:14px;top:50%;
+  transform:translateY(-50%) translateY(2px);
+  border:5px solid transparent;border-top-color:rgba(220,241,221,.4);
+  pointer-events:none
+}
+.vw-field select{padding-right:36px;cursor:none;color:var(--mint)}
+.vw-field select option{background:var(--ink2);color:var(--mint)}
+.vw-form-msg{font-family:'Chakra Petch',sans-serif;font-size:9px;letter-spacing:.14em;text-transform:uppercase;margin-top:2px}
+.vw-form-err{color:#e07070;display:none}
+.vw-form-ok{text-align:center;display:none;padding:48px 24px}
+.vw-ok-icon{
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(41,190,156,.1);border:1px solid rgba(41,190,156,.3);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;color:var(--teal)
+}
+.vw-form-ok h4{
+  font-family:'Chakra Petch',sans-serif;font-weight:500;
+  font-size:15px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mint);margin-bottom:12px
+}
+.vw-form-ok p{font-size:14px;color:var(--dim);line-height:1.75}
+.vw-submit{margin-top:6px}
+.vw-submit .btn-p{width:100%;justify-content:center}
+@media(max-width:600px){.vw-row{grid-template-columns:1fr}}
 
 /* The empty chair card */
 .join-seat-card{
@@ -1366,8 +1412,78 @@ body.hov #cur-r{width:56px;height:56px;border-color:var(--teal)}
     <div class="s-label reveal" style="justify-content:center;display:inline-flex;margin:0 auto 22px"><span class="s-n">05</span>Early Access</div>
     <h2 class="join-ht reveal">Be part of <em>what's next.</em></h2>
     <p class="join-p reveal">Join our early access list to get exclusive updates and early-bird benefits for the VentureWeavers community.</p>
-    <div class="hs-form-wrap reveal">
-      <div class="hs-form-frame" data-region="eu1" data-form-id="c188801e-6212-48f4-9824-1e924c6ea8e7" data-portal-id="147550228"></div>
+    <div class="vw-form-wrap reveal">
+      <form class="vw-form" id="vwForm" novalidate>
+        <div class="vw-row">
+          <div class="vw-field">
+            <label for="vwFirst">First Name</label>
+            <input type="text" id="vwFirst" name="entry.600305313" placeholder="Your first name" required autocomplete="given-name">
+          </div>
+          <div class="vw-field">
+            <label for="vwLast">Last Name</label>
+            <input type="text" id="vwLast" name="entry.1766787096" placeholder="Your last name" required autocomplete="family-name">
+          </div>
+        </div>
+        <div class="vw-field">
+          <label for="vwEmail">Email Address</label>
+          <input type="email" id="vwEmail" name="entry.2137778131" placeholder="your@email.com" required autocomplete="email">
+        </div>
+        <div class="vw-field">
+          <label for="vwMobile">Mobile Number</label>
+          <input type="tel" id="vwMobile" name="entry.1988592930" placeholder="+20 100 000 0000" required autocomplete="tel">
+        </div>
+        <div class="vw-field">
+          <label for="vwRole">Ecosystem Role</label>
+          <div class="vw-sel-wrap">
+            <select id="vwRole" name="entry.351336669" required>
+              <option value="" disabled selected>Select your role</option>
+              <option value="Founder">Founder</option>
+              <option value="Angel Investor">Angel Investor</option>
+              <option value="Institutional Investor">Institutional Investor</option>
+              <option value="Venture Studio">Venture Studio</option>
+              <option value="Expert">Expert</option>
+              <option value="Enabler">Enabler</option>
+              <option value="Corporate">Corporate</option>
+              <option value="Regulator / Policymaker">Regulator / Policymaker</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="vw-field">
+          <label for="vwCountry">Country / Region</label>
+          <div class="vw-sel-wrap">
+            <select id="vwCountry" name="entry.578219609" required>
+              <option value="" disabled selected>Select your country</option>
+              <option value="Egypt">Egypt</option>
+              <option value="UAE">UAE</option>
+              <option value="Saudi Arabia">Saudi Arabia</option>
+              <option value="Qatar">Qatar</option>
+              <option value="Jordan">Jordan</option>
+              <option value="Lebanon">Lebanon</option>
+              <option value="Other MENA">Other MENA</option>
+              <option value="Outside MENA">Outside MENA</option>
+            </select>
+          </div>
+        </div>
+        <div class="vw-field">
+          <label for="vwLinkedin">LinkedIn URL</label>
+          <input type="text" id="vwLinkedin" name="entry.404903942" placeholder="https://linkedin.com/in/yourprofile" required>
+        </div>
+        <p class="vw-form-msg vw-form-err" id="vwErr">Please fill in all required fields.</p>
+        <div class="vw-submit">
+          <button type="submit" class="btn-p" style="cursor:none">
+            <span>Request Early Access</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </form>
+      <div class="vw-form-ok" id="vwOk">
+        <div class="vw-ok-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h4>You're on the list.</h4>
+        <p>We'll be in touch as VentureWeavers opens its doors.<br>Stay close to what's next.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1436,7 +1552,77 @@ body.hov #cur-r{width:56px;height:56px;border-color:var(--teal)}
       <div class="ct-fw">
         <h3>Join the <em>early access</em> list</h3>
         <p>Be the first to know when VentureWeavers opens its doors.</p>
-        <div class="hs-form-frame" data-region="eu1" data-form-id="c188801e-6212-48f4-9824-1e924c6ea8e7" data-portal-id="147550228"></div>
+        <form class="vw-form" id="vwFormCt" novalidate style="gap:12px">
+          <div class="vw-row">
+            <div class="vw-field">
+              <label for="vwCtFirst">First Name</label>
+              <input type="text" id="vwCtFirst" name="entry.600305313" placeholder="First name" required autocomplete="given-name">
+            </div>
+            <div class="vw-field">
+              <label for="vwCtLast">Last Name</label>
+              <input type="text" id="vwCtLast" name="entry.1766787096" placeholder="Last name" required autocomplete="family-name">
+            </div>
+          </div>
+          <div class="vw-field">
+            <label for="vwCtEmail">Email Address</label>
+            <input type="email" id="vwCtEmail" name="entry.2137778131" placeholder="your@email.com" required autocomplete="email">
+          </div>
+          <div class="vw-field">
+            <label for="vwCtMobile">Mobile Number</label>
+            <input type="tel" id="vwCtMobile" name="entry.1988592930" placeholder="+20 100 000 0000" required autocomplete="tel">
+          </div>
+          <div class="vw-field">
+            <label for="vwCtRole">Ecosystem Role</label>
+            <div class="vw-sel-wrap">
+              <select id="vwCtRole" name="entry.351336669" required>
+                <option value="" disabled selected>Select your role</option>
+                <option value="Founder">Founder</option>
+                <option value="Angel Investor">Angel Investor</option>
+                <option value="Institutional Investor">Institutional Investor</option>
+                <option value="Venture Studio">Venture Studio</option>
+                <option value="Expert">Expert</option>
+                <option value="Enabler">Enabler</option>
+                <option value="Corporate">Corporate</option>
+                <option value="Regulator / Policymaker">Regulator / Policymaker</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="vw-field">
+            <label for="vwCtCountry">Country / Region</label>
+            <div class="vw-sel-wrap">
+              <select id="vwCtCountry" name="entry.578219609" required>
+                <option value="" disabled selected>Select your country</option>
+                <option value="Egypt">Egypt</option>
+                <option value="UAE">UAE</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Qatar">Qatar</option>
+                <option value="Jordan">Jordan</option>
+                <option value="Lebanon">Lebanon</option>
+                <option value="Other MENA">Other MENA</option>
+                <option value="Outside MENA">Outside MENA</option>
+              </select>
+            </div>
+          </div>
+          <div class="vw-field">
+            <label for="vwCtLinkedin">LinkedIn URL</label>
+            <input type="text" id="vwCtLinkedin" name="entry.404903942" placeholder="https://linkedin.com/in/yourprofile" required>
+          </div>
+          <p class="vw-form-msg vw-form-err" id="vwCtErr">Please fill in all required fields.</p>
+          <div class="vw-submit">
+            <button type="submit" class="btn-p" style="cursor:none;width:100%;justify-content:center">
+              <span>Request Access</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </form>
+        <div class="vw-form-ok" id="vwCtOk">
+          <div class="vw-ok-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h4>You're on the list.</h4>
+          <p>We'll be in touch when VentureWeavers opens its doors.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1560,7 +1746,7 @@ function startSite(){
     });
 
     // Join section
-    document.querySelectorAll('.join-seat-card,.hs-form-wrap,.join-p').forEach((el,i)=>{
+    document.querySelectorAll('.join-seat-card,.vw-form-wrap,.join-p').forEach((el,i)=>{
       gsap.set(el,{opacity:0,y:20});
       ScrollTrigger.create({trigger:el,start:'top 85%',once:true,
         onEnter:()=>gsap.to(el,{opacity:1,y:0,duration:.65,delay:i*.08,ease:'power2.out'})});
@@ -1636,6 +1822,34 @@ document.addEventListener('keydown',e=>{
     var d=Math.abs(tbx-bx)+Math.abs(tby-by)+Math.abs(tgx-gx)+Math.abs(tgy-gy);
     if(d>0.05){raf=true;requestAnimationFrame(bgLoop);}
   }
+})();
+
+/* ── Custom Google Forms submission ── */
+(function(){
+  var GF='https://docs.google.com/forms/d/e/1FAIpQLSfLzS31MGTEL1mpEZ7knjW-WDJL-VV9MmX9TrtZHq_im5Mxlg/formResponse';
+  function wire(formId,errId,okId){
+    var frm=document.getElementById(formId);
+    var err=document.getElementById(errId);
+    var ok=document.getElementById(okId);
+    if(!frm||!err||!ok)return;
+    frm.addEventListener('submit',function(e){
+      e.preventDefault();
+      err.style.display='none';
+      var valid=true;
+      frm.querySelectorAll('[required]').forEach(function(f){
+        if(!f.value.trim()){valid=false;f.style.borderColor='rgba(224,112,112,.55)';}
+        else{f.style.borderColor='';}
+      });
+      if(!valid){err.style.display='block';return;}
+      var btn=frm.querySelector('[type=submit]');
+      if(btn){btn.disabled=true;btn.style.opacity='.55';}
+      fetch(GF,{method:'POST',mode:'no-cors',body:new FormData(frm)})
+        .then(function(){frm.style.display='none';ok.style.display='block';})
+        .catch(function(){frm.style.display='none';ok.style.display='block';});
+    });
+  }
+  wire('vwForm','vwErr','vwOk');
+  wire('vwFormCt','vwCtErr','vwCtOk');
 })();
 </script>
 </body>
