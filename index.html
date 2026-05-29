@@ -674,8 +674,9 @@ body.hov #cur-r{width:56px;height:56px;border-color:var(--teal)}
 .who-card:nth-child(1){animation:d1 8s ease-in-out infinite}
 .who-card:nth-child(2){animation:d2 9s ease-in-out infinite}
 .who-card:nth-child(3){animation:d3 7.5s ease-in-out infinite}
-.who-cards-row.row-2 .who-card:nth-child(1){animation:d4 8.5s ease-in-out infinite}
-.who-cards-row.row-2 .who-card:nth-child(2){animation:d5 7.5s ease-in-out infinite}
+.who-cards-row.row-b .who-card:nth-child(1){animation:d4 8.5s ease-in-out infinite}
+.who-cards-row.row-b .who-card:nth-child(2){animation:d5 7.5s ease-in-out infinite}
+.who-cards-row.row-b .who-card:nth-child(3){animation:d6 9s ease-in-out infinite}
 .who-card:hover{animation:none!important;transform:rotate(0deg) translateY(-6px)!important}
 
 .founders-layout .card:nth-child(1){animation:d1 8s ease-in-out infinite}
@@ -779,14 +780,15 @@ body.hov #cur-r{width:56px;height:56px;border-color:var(--teal)}
 .who-cards-wall{position:relative;z-index:1;margin-top:8px}
 .who-cards-row{display:grid;gap:20px;position:relative;z-index:1}
 .who-cards-row.row-3{grid-template-columns:repeat(3,1fr)}
-.who-cards-row.row-2{grid-template-columns:repeat(2,1fr);max-width:calc(66.66% - 4px);margin-top:20px}
+.who-cards-row.row-b{grid-template-columns:repeat(3,1fr);margin-top:20px}
 .who-card{background:var(--ink2);border:1px solid rgba(41,190,156,.16);border-radius:2px;padding:0 0 20px;cursor:none;will-change:transform;box-shadow:5px 10px 30px rgba(0,0,0,.5);transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s;position:relative;overflow:visible}
 .who-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--teal-deep))}
 .who-cards-row.row-3 .who-card:nth-child(1){transform:rotate(-.7deg)}
 .who-cards-row.row-3 .who-card:nth-child(2){transform:rotate(1deg);margin-top:18px}
 .who-cards-row.row-3 .who-card:nth-child(3){transform:rotate(-.5deg)}
-.who-cards-row.row-2 .who-card:nth-child(1){transform:rotate(.8deg)}
-.who-cards-row.row-2 .who-card:nth-child(2){transform:rotate(-.6deg);margin-top:14px}
+.who-cards-row.row-b .who-card:nth-child(1){transform:rotate(.8deg)}
+.who-cards-row.row-b .who-card:nth-child(2){transform:rotate(-.6deg);margin-top:14px}
+.who-cards-row.row-b .who-card:nth-child(3){transform:rotate(.5deg)}
 .who-card:hover{transform:rotate(0deg) translateY(-6px)!important;box-shadow:8px 16px 40px rgba(0,0,0,.65)}
 .who-card-header{background:linear-gradient(135deg,rgba(41,190,156,.09),rgba(2,104,111,.05));border-bottom:1px solid rgba(41,190,156,.12);padding:20px 18px 14px;display:flex;align-items:center;gap:12px}
 .who-card-avatar{width:44px;height:44px;border-radius:50%;background:rgba(41,190,156,.1);border:1.5px solid rgba(41,190,156,.28);display:flex;align-items:center;justify-content:center;color:var(--teal);flex-shrink:0}
@@ -809,15 +811,15 @@ body.hov #cur-r{width:56px;height:56px;border-color:var(--teal)}
   .community-layout{grid-template-columns:1fr}
   .postit-wall{grid-template-columns:repeat(2,1fr)}
   .who-cards-row.row-3{grid-template-columns:repeat(2,1fr)}
-  .who-cards-row.row-2{max-width:100%;grid-template-columns:repeat(2,1fr)}
+  .who-cards-row.row-b{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:600px){
   .postit-wall{grid-template-columns:1fr;gap:16px}
   .postit-card:nth-child(n){transform:none!important;margin-top:0!important}
-  .who-cards-row.row-3,.who-cards-row.row-2{grid-template-columns:1fr;max-width:100%}
-  .who-cards-row.row-3 .who-card:nth-child(n),.who-cards-row.row-2 .who-card:nth-child(n){transform:none!important;margin-top:0!important}
+  .who-cards-row.row-3,.who-cards-row.row-b{grid-template-columns:1fr;max-width:100%}
+  .who-cards-row.row-3 .who-card:nth-child(n),.who-cards-row.row-b .who-card:nth-child(n){transform:none!important;margin-top:0!important}
   .community-stat-grid{grid-template-columns:1fr 1fr}
-  .who-cards-row.row-2{margin-top:16px}
+  .who-cards-row.row-b{margin-top:16px}
   .c-manifesto:nth-child(n){transform:none!important}
   .c-stat:nth-child(n){transform:none!important}
   .memorial{transform:none!important}
@@ -955,7 +957,6 @@ body.hov #cur-r{width:56px;height:56px;border-color:var(--teal)}
           Join Early Access
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="13" height="13"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
-        <a class="btn-g" href="#s-founders">Meet the Team</a>
       </div>
     </div>
 
@@ -1055,7 +1056,7 @@ body.hov #cur-r{width:56px;height:56px;border-color:var(--teal)}
     <div>
       <div class="community-stat-grid">
         <div class="c-stat"><div class="pin left"></div><span class="c-stat-n">MENA</span><span class="c-stat-l">Region Focus</span></div>
-        <div class="c-stat"><div class="tape right"></div><span class="c-stat-n">5</span><span class="c-stat-l">Member Types</span></div>
+        <div class="c-stat"><div class="tape right"></div><span class="c-stat-n">6</span><span class="c-stat-l">Member Segments</span></div>
         <div class="c-stat"><div class="tape left"></div><span class="c-stat-n">6</span><span class="c-stat-l">Value Pillars</span></div>
         <div class="c-stat"><div class="pin right"></div><span class="c-stat-n">∞</span><span class="c-stat-l">Connections</span></div>
       </div>
@@ -1217,7 +1218,7 @@ body.hov #cur-r{width:56px;height:56px;border-color:var(--teal)}
 ═══════════════════════════════════ -->
 <section class="wall-section" id="s-who">
   <div class="s-label reveal"><span class="s-n">03</span>Who Belongs</div>
-  <h2 class="who-ht reveal">Five critical segments. <em>One conversation.</em></h2>
+  <h2 class="who-ht reveal">Six critical segments. <em>One conversation.</em></h2>
   <p class="who-sub reveal">VentureWeavers brings together the people whose paths should have crossed long ago, each with expertise to share, each with needs to fulfill.</p>
 
   <div class="who-cards-wall">
@@ -1232,7 +1233,7 @@ body.hov #cur-r{width:56px;height:56px;border-color:var(--teal)}
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           </div>
           <div>
-            <span class="who-card-num">01 / 05</span>
+            <span class="who-card-num">01 / 06</span>
             <h4>Founders &amp; <em>Builders</em></h4>
           </div>
         </div>
@@ -1253,7 +1254,7 @@ body.hov #cur-r{width:56px;height:56px;border-color:var(--teal)}
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
           </div>
           <div>
-            <span class="who-card-num">02 / 05</span>
+            <span class="who-card-num">02 / 06</span>
             <h4><em>Investors</em></h4>
           </div>
         </div>
@@ -1274,7 +1275,7 @@ body.hov #cur-r{width:56px;height:56px;border-color:var(--teal)}
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
           </div>
           <div>
-            <span class="who-card-num">03 / 05</span>
+            <span class="who-card-num">03 / 06</span>
             <h4>Operators &amp; <em>Executives</em></h4>
           </div>
         </div>
@@ -1291,7 +1292,7 @@ body.hov #cur-r{width:56px;height:56px;border-color:var(--teal)}
     </div>
 
     <!-- Row 2: two cards centered -->
-    <div class="who-cards-row row-2">
+    <div class="who-cards-row row-b">
 
       <div class="who-card reveal">
         <div class="tape left"></div>
@@ -1300,7 +1301,7 @@ body.hov #cur-r{width:56px;height:56px;border-color:var(--teal)}
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
           </div>
           <div>
-            <span class="who-card-num">04 / 05</span>
+            <span class="who-card-num">04 / 06</span>
             <h4>Experts &amp; <em>Enablers</em></h4>
           </div>
         </div>
@@ -1321,7 +1322,7 @@ body.hov #cur-r{width:56px;height:56px;border-color:var(--teal)}
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           </div>
           <div>
-            <span class="who-card-num">05 / 05</span>
+            <span class="who-card-num">05 / 06</span>
             <h4>Ecosystem <em>Architects</em></h4>
           </div>
         </div>
@@ -1331,6 +1332,27 @@ body.hov #cur-r{width:56px;height:56px;border-color:var(--teal)}
             <span class="who-tag">Government</span>
             <span class="who-tag">Policy</span>
             <span class="who-tag">Institutions</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="who-card reveal">
+        <div class="tape right"></div>
+        <div class="who-card-header">
+          <div class="who-card-avatar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+          </div>
+          <div>
+            <span class="who-card-num">06 / 06</span>
+            <h4>Want to <em>Be</em></h4>
+          </div>
+        </div>
+        <div class="who-card-body">
+          <p>Interested in joining the venture ecosystem, exploring roles as founders, investors, or active contributors.</p>
+          <div class="who-tags">
+            <span class="who-tag">Aspiring</span>
+            <span class="who-tag">Exploring</span>
+            <span class="who-tag">Transitioning</span>
           </div>
         </div>
       </div>
