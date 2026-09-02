@@ -1,508 +1,435 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>QuidQuo | Venture capital formation, run by an agent network</title>
-<meta name="description" content="QuidQuo staffs your venture with an integrated multi-agent network. AI agents assess, build the investment case and run the raise, taking a venture from idea to investment ready.">
+<meta name="description" content="QuidQuo staffs your venture with an integrated multi-agent network. The agentic team assesses, builds the investment case and runs the raise, taking a venture from idea to investment ready.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--carbon:#080907;--raised:#141712;--sunk:#0E110D;--line:#20241C;--line2:#2C3127;
  --lime:#C6FF34;--acid:#A8E01F;--pale:#E4FFA6;--bone:#F4F6EE;--dim:#C9CCC2;
  --graphite:#8A8A85;--slate:#666B61;--up:#00E5A0;--down:#FF3B5C;--hold:#FFB020;
- --e:cubic-bezier(.2,0,0,1);--px:clamp(18px,5vw,60px)}
+ --e:cubic-bezier(.2,0,0,1);--px:clamp(18px,5vw,58px)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--carbon);color:var(--dim);font-family:Inter,system-ui,sans-serif;
  font-size:15.5px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-h1,h2,h3{font-family:Sora,sans-serif;color:var(--bone);margin:0;font-weight:300;letter-spacing:-.035em;line-height:1.05}
+h1,h2,h3{font-family:Sora,sans-serif;color:var(--bone);margin:0;font-weight:300;letter-spacing:-.035em;line-height:1.06}
 p{margin:0 0 1em}a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--lime);outline-offset:3px;border-radius:4px}
 .wrap{max-width:1240px;margin:0 auto;padding:0 var(--px)}
 section{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
-.pad{padding-top:clamp(64px,7.5vw,108px);padding-bottom:clamp(64px,7.5vw,108px)}
+.pad{padding-top:clamp(62px,7.5vw,104px);padding-bottom:clamp(62px,7.5vw,104px)}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 26px;border-radius:9px;
  font-size:14.5px;font-weight:500;font-family:Inter;border:1px solid var(--line2);color:var(--bone);
  background:transparent;cursor:pointer;transition:.16s var(--e)}
-.btn:hover{border-color:#454B3E;background:rgba(255,255,255,.035)}
+.btn:hover{border-color:#4A5142;background:rgba(255,255,255,.035)}
 .btn.p{background:var(--lime);color:#0A0B0A;border-color:var(--lime);font-weight:600}
 .btn.p:hover{background:var(--acid);border-color:var(--acid)}
 .btn.sm{padding:9px 17px;font-size:13.5px}
 .btn.lg{padding:15px 30px;font-size:15.5px}
-.rv{opacity:0;transform:translateY(13px)}
+.rv{opacity:0;transform:translateY(14px)}
 .rv.in{opacity:1;transform:none;transition:opacity .7s var(--e),transform .7s var(--e)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1!important;transform:none!important}
  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
-.head{max-width:min(860px,94%)}
-.head h2{font-size:clamp(29px,4vw,48px);font-weight:200;letter-spacing:-.04em;text-wrap:balance}
+.kick{font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+ color:var(--lime);margin-bottom:16px}
+.head{max-width:min(900px,94%)}
+.head h2{font-size:clamp(28px,3.8vw,46px);font-weight:200;letter-spacing:-.04em;text-wrap:balance}
 .head h2 b{font-weight:500}
-.head p{margin-top:14px;font-size:17px;color:var(--graphite);max-width:33em}
+.head p{margin-top:14px;font-size:16.5px;color:var(--graphite);max-width:34em}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:70;transition:.3s var(--e)}
-nav.stuck{background:rgba(8,9,7,.86);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;gap:22px;padding-top:16px;padding-bottom:16px}
-.brand{width:144px;flex:0 0 auto}.brand svg{width:100%;height:auto;display:block}
-.nl{display:flex;gap:26px;margin-left:auto;font-size:14px;color:var(--graphite)}
+nav.stuck{background:rgba(8,9,7,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:20px;padding-top:15px;padding-bottom:15px}
+.brand{width:142px;flex:0 0 auto}.brand svg{width:100%;height:auto;display:block}
+.nl{display:flex;gap:24px;margin-left:auto;font-size:14px;color:var(--graphite)}
 .nl a:hover{color:var(--bone)}
-@media(max-width:900px){.nl{display:none}}
+@media(max-width:960px){.nl{display:none}}
 .nav-cta{margin-left:auto}
-@media(min-width:901px){.nav-cta{margin-left:24px}}
+@media(min-width:961px){.nav-cta{margin-left:22px}}
 @media(max-width:600px){.brand{width:112px}}
 
-/* ---------- HERO ---------- */
-.hero{position:relative;overflow:hidden;padding-top:104px;text-align:center;
- border-bottom:1px solid var(--line)}
-.hero::before{content:"";position:absolute;left:50%;top:-10%;width:min(150vw,1400px);height:900px;
+/* ================= HERO ================= */
+.hero{position:relative;overflow:hidden;padding-top:96px;border-bottom:1px solid var(--line)}
+.hero::before{content:"";position:absolute;left:50%;top:-16%;width:min(150vw,1400px);height:760px;
  transform:translateX(-50%);pointer-events:none;
- background:radial-gradient(ellipse at 50% 0%,rgba(198,255,52,.10),transparent 62%)}
-.hero .wrap{position:relative;z-index:2}
-.hsub{margin:24px auto 0;max-width:36em;font-size:clamp(16px,1.5vw,18.5px);color:var(--graphite)}
-.hcta{display:flex;gap:11px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+ background:radial-gradient(ellipse at 50% 0%,rgba(198,255,52,.11),transparent 60%)}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.04fr .96fr;
+ gap:clamp(30px,4.5vw,64px);align-items:center;padding-top:clamp(30px,5vh,58px);
+ padding-bottom:clamp(40px,6vh,72px)}
+@media(max-width:980px){.hero .wrap{grid-template-columns:1fr;gap:44px}}
+h1{font-size:clamp(36px,4.8vw,60px);font-weight:200;letter-spacing:-.045em;line-height:1.04}
+h1 b{font-weight:500;color:var(--lime)}
+.hsub{margin-top:22px;max-width:31em;font-size:clamp(15.5px,1.45vw,17.5px);color:var(--graphite)}
+.hcta{display:flex;gap:11px;margin-top:30px;flex-wrap:wrap}
 .hnote{margin-top:16px;font-size:13.5px;color:var(--slate)}
+@media(max-width:600px){.hcta .btn{flex:1 1 100%}}
 
-/* ---------- product surface ---------- */
-.app{margin-top:clamp(36px,5vw,60px);border:1px solid var(--line2);border-radius:16px;overflow:hidden;
- background:var(--sunk);text-align:left;box-shadow:0 40px 100px rgba(0,0,0,.6);
- display:grid;grid-template-columns:186px minmax(0,1fr) 292px;min-height:420px;max-width:100%}
-.app>*{min-width:0}
-@media(max-width:1120px){.app{grid-template-columns:minmax(0,1fr) 276px}.app .side{display:none}}
-@media(max-width:820px){.app{grid-template-columns:minmax(0,1fr);min-height:0}.app .art{display:none}}
-.side{border-right:1px solid var(--line);padding:14px 12px;background:var(--carbon);min-width:0}
-.slab{font-family:'JetBrains Mono';font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;
- color:var(--slate);padding:0 8px 8px}
-.sit{display:flex;align-items:center;gap:9px;white-space:nowrap;overflow:hidden;padding:7px 8px;border-radius:7px;font-size:12.5px;
- color:var(--graphite);margin-bottom:1px}
-.sit .mk{width:19px;height:19px;border-radius:6px;background:var(--line);color:var(--pale);flex:0 0 auto;
- font-family:'JetBrains Mono';font-size:8.5px;display:flex;align-items:center;justify-content:center}
-.sit.on{background:rgba(198,255,52,.09);color:var(--bone)}
-.sit.on .mk{background:linear-gradient(135deg,var(--acid),var(--lime));color:#0A0B0A;font-weight:700}
-.sit .bd{margin-left:auto;font-family:'JetBrains Mono';font-size:8.5px;color:var(--lime)}
-.conv{padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0;overflow:hidden}
-.cm{display:flex;gap:10px}
-.cm .av{width:24px;height:24px;border-radius:7px;flex:0 0 auto;background:var(--line);color:var(--pale);
- font-family:'JetBrains Mono';font-size:8.5px;display:flex;align-items:center;justify-content:center}
-.cm.ae .av{background:linear-gradient(135deg,var(--acid),var(--lime));color:#0A0B0A;font-weight:700}
-.cm .bb{min-width:0;overflow-wrap:anywhere;font-size:13.5px;color:var(--dim);line-height:1.55}
-.cm .bb b{color:var(--bone);font-weight:500}
-.cm .who{display:block;font-size:10.5px;color:var(--slate);margin-bottom:3px}
-.hand{display:inline-flex;vertical-align:middle;align-items:center;gap:6px;padding:3px 9px;border-radius:20px;
- background:rgba(198,255,52,.1);border:1px solid rgba(198,255,52,.28);font-family:'JetBrains Mono';
- font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--pale);margin-bottom:6px}
-.art{border-left:1px solid var(--line);background:var(--carbon);padding:15px;min-width:0}
-.art-h{display:flex;align-items:center;gap:8px;margin-bottom:12px}
-.art-h b{font-size:12.5px;color:var(--bone);font-weight:500}
-.art-h .st{margin-left:auto;font-family:'JetBrains Mono';font-size:8.5px;letter-spacing:.09em;
- text-transform:uppercase;padding:3px 8px;border-radius:5px;background:rgba(255,176,32,.12);
- border:1px solid rgba(255,176,32,.3);color:var(--hold)}
-.dtab{border:1px solid var(--line);border-radius:9px;overflow:hidden;font-size:11.5px;min-width:0}
-.dtab .r{display:flex;padding:7px 10px;border-bottom:1px solid var(--line)}
-.dtab .r:last-child{border-bottom:0}
-.dtab .r.h{color:var(--slate);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase}
-.dtab .r span:first-child{flex:1 1 auto;min-width:0;color:var(--dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.dtab .r span:last-child{font-family:'JetBrains Mono';color:var(--bone)}
-.dtab .r.hi{background:rgba(198,255,52,.05)}
-.anote{margin-top:11px;padding:9px 11px;border-radius:8px;background:rgba(198,255,52,.06);
- border-left:2px solid var(--lime);font-size:11.5px;color:var(--graphite)}
-.abtn{display:flex;gap:6px;margin-top:12px}
-.abtn span{font-size:11px;padding:6px 11px;border-radius:7px;border:1px solid var(--line2);color:var(--dim)}
-.abtn span.p{background:var(--lime);color:#0A0B0A;border-color:var(--lime);font-weight:600}
+/* orbit diagram */
+.orb{position:relative;width:100%;aspect-ratio:1/.94;max-width:520px;margin:0 auto}
+.orb svg{width:100%;height:100%;display:block;overflow:visible}
+.o-ring{fill:none;stroke:var(--line2);stroke-width:1}
+.o-ring.dash{stroke-dasharray:3 6;stroke:rgba(198,255,52,.22)}
+.o-spin{transform-origin:200px 190px;animation:spin 60s linear infinite}
+.o-spin>g{animation:cspin 60s linear infinite}
+@keyframes cspin{to{transform:rotate(-360deg)}}
+.o-spin.rev{animation-direction:reverse;animation-duration:62s}
+@keyframes spin{to{transform:rotate(360deg)}}
+.o-node{fill:var(--sunk);stroke:var(--line2);stroke-width:1}
+.o-node.on{fill:rgba(198,255,52,.14);stroke:rgba(198,255,52,.55)}
+.o-lab{font-family:'JetBrains Mono';font-size:8.5px;fill:var(--pale);text-anchor:middle;dominant-baseline:central}
+.o-core{fill:url(#coreG)}
+.o-ctext{font-family:Sora;font-size:12px;fill:#0A0B0A;font-weight:600;text-anchor:middle;dominant-baseline:central}
+.o-sub{font-family:Inter;font-size:8px;fill:#1A2110;text-anchor:middle;dominant-baseline:central}
+.o-spoke{stroke:rgba(198,255,52,.16);stroke-width:1;fill:none}
+.o-cap{margin-top:14px;text-align:center;font-size:12.5px;color:var(--slate)}
 </style></head><body>
 
 <nav id="nav"><div class="wrap">
  <a class="brand" href="#top" aria-label="QuidQuo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2111 430"><g transform="translate(-310.13,-0.01) scale(1.0)"><path fill="#A8E01F" d="M403.97,273.21c0-157.93,72.2-171.56,162.13-171.56,22,0,43.67,1.22,63.66,5.4-18-71.16-83.64-77.69-157.26-98.37-110.31-30.99-151.66,22.86-160.93,132.85-10.24,121.46,35.5,162.73,97.25,175.66-3.16-12.52-4.85-27.03-4.85-43.97Z"/><path fill="#C6FF34" d="M571.86,107.4c-89.93,0-162.12,13.63-162.13,171.56,0,113.31,75.55,118.03,162.13,142.36,110.31,30.99,151.66-22.86,160.93-132.85,13.55-160.8-70.99-181.07-160.93-181.07Z"/></g><g transform="translate(484.29720000000003,-683.81) scale(1.5578)"><path fill="#F4F6EE" d="M98.91,490.14c48.83,0,75.98,27.65,75.98,84.21,0,39.86-13.45,65.52-38.62,76.98l15.94,33.38h-29.65l-12.95-26.91c-3.49.5-6.98.5-10.71.5h-22.92c-49.08,0-75.98-27.65-75.98-83.96s27.16-84.21,75.98-84.21h22.92ZM108.62,593.28l14.7,31.14c15.2-7.23,21.92-23.42,21.92-50.08,0-38.37-13.95-54.81-46.34-54.81h-22.92c-32.39,0-46.59,16.44-46.59,54.81s13.95,54.56,46.59,54.56h19.93l-16.94-35.63h29.65Z"/><path fill="#F4F6EE" d="M218.99,526.76v78.73c0,15.45,11.46,27.16,32.39,27.16h21.43c20.93,0,32.14-11.71,32.14-27.16v-78.73h25.91v79.72c0,30.39-19.43,51.82-57.05,51.82h-24.41c-37.62,0-57.05-21.43-57.05-51.82v-79.72h26.66Z"/><path fill="#F4F6EE" d="M379.68,477.18v30.64h-26.66v-30.64h26.66ZM379.43,526.76v131.54h-26.41v-131.54h26.41Z"/><path fill="#F4F6EE" d="M537.88,469.71v132.29c0,37.87-16.94,56.3-48.33,56.3h-36.37c-35.13,0-57.05-21.43-57.05-65.77s21.92-65.77,57.05-65.77h58.05v-57.05h26.66ZM511.22,600.75v-48.58h-55.56c-22.67,0-32.89,11.96-32.89,40.36s10.21,40.11,32.89,40.11h26.16c21.18,0,29.4-9.47,29.4-31.89Z"/><path fill="#F4F6EE" d="M654.72,490.14c48.83,0,75.98,27.65,75.98,84.21,0,39.86-13.45,65.52-38.62,76.98l15.94,33.38h-29.65l-12.95-26.91c-3.49.5-6.98.5-10.71.5h-22.92c-49.08,0-75.98-27.65-75.98-83.96s27.16-84.21,75.98-84.21h22.92ZM664.43,593.28l14.7,31.14c15.2-7.23,21.92-23.42,21.92-50.08,0-38.37-13.95-54.81-46.34-54.81h-22.92c-32.39,0-46.59,16.44-46.59,54.81s13.95,54.56,46.59,54.56h19.93l-16.94-35.63h29.65Z"/><path fill="#F4F6EE" d="M774.8,526.76v78.73c0,15.45,11.46,27.16,32.39,27.16h21.43c20.93,0,32.14-11.71,32.14-27.16v-78.73h25.91v79.72c0,30.39-19.43,51.82-57.05,51.82h-24.41c-37.62,0-57.05-21.43-57.05-51.82v-79.72h26.66Z"/><path fill="#F4F6EE" d="M987.31,526.76c34.88,0,57.05,21.42,57.05,65.77s-22.17,65.77-57.05,65.77h-27.65c-35.13,0-57.05-21.43-57.05-65.77s21.92-65.77,57.05-65.77h27.65ZM962.15,552.17c-22.92,0-32.89,11.96-32.89,40.36s9.97,40.11,32.89,40.11h22.67c22.67,0,32.89-11.71,32.89-40.11s-10.21-40.36-32.89-40.36h-22.67Z"/></g></svg></a>
- <div class="nl"><a href="#cap">Platform</a><a href="#agents">The agents</a><a href="#who">Who it is for</a><a href="#how">How it works</a></div>
- <a class="btn sm p nav-cta" href="#cta">Get started</a>
+ <div class="nl"><a href="#why">Why</a><a href="#agents">The agents</a><a href="#work">What they do</a>
+  <a href="#platform">Platform</a><a href="#who">Who it is for</a></div>
+ <a class="btn sm p nav-cta" href="#join">Get started</a>
 </div></nav>
 
-<style>
-h1{font-size:clamp(35px,4.9vw,62px);font-weight:200;letter-spacing:-.044em;line-height:1.03;
- max-width:19ch;margin:0 auto;text-wrap:balance}
-h1 b{font-weight:500;color:var(--lime)}
-
-/* ---------- the journey: idea to investment ready ---------- */
-.jr{position:relative;margin:clamp(34px,5vw,54px) auto 0;max-width:1000px}
-.jr-rail{position:relative;height:2px;background:var(--line2);border-radius:2px;margin:0 4%}
-.jr-fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--acid),var(--lime));
- border-radius:2px;width:0;transition:width 2.6s var(--e);box-shadow:0 0 12px rgba(198,255,52,.5)}
-.jr-pip{position:absolute;top:50%;width:9px;height:9px;border-radius:50%;background:var(--carbon);
- border:2px solid var(--line2);transform:translate(-50%,-50%);transition:.4s var(--e)}
-.jr-pip.on{border-color:var(--lime);background:var(--lime);box-shadow:0 0 0 5px rgba(198,255,52,.16)}
-.jr-stages{display:flex;justify-content:space-between;margin:0 4%;padding-top:16px}
-.jr-st{flex:1 1 0;text-align:center;min-width:0}
-.jr-st span{display:block;font-size:12.5px;color:var(--slate);transition:color .4s var(--e);
- white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.jr-st.on span{color:var(--dim)}
-.jr-st.last.on span{color:var(--lime);font-weight:500}
-.jr-ag{display:flex;justify-content:center;gap:7px;margin-top:22px;flex-wrap:wrap}
-.jr-chip{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:100px;
- border:1px solid var(--line2);background:var(--sunk);font-size:12.5px;color:var(--graphite);
- opacity:0;transform:translateY(6px);transition:.5s var(--e)}
-.jr-chip.on{opacity:1;transform:none}
-.jr-chip.act{border-color:rgba(198,255,52,.42);color:var(--bone);background:rgba(198,255,52,.06)}
-.jr-chip i{font-style:normal;width:18px;height:18px;border-radius:5px;background:var(--line);
- color:var(--pale);font-family:'JetBrains Mono';font-size:8.5px;display:flex;align-items:center;justify-content:center}
-.jr-chip.act i{background:linear-gradient(135deg,var(--acid),var(--lime));color:#0A0B0A;font-weight:700}
-.jr-note{margin-top:16px;font-size:13px;color:var(--slate);text-align:center}
-@media(max-width:760px){
- .jr-stages{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 4px;margin:0}
- .jr-st span{font-size:11.5px;white-space:normal}
- .jr-rail{margin:0}}
-</style>
-
 <header class="hero" id="top"><div class="wrap">
- <h1>Venture capital formation, <b>run by an agent network</b></h1>
- <p class="hsub">QuidQuo staffs your venture with an integrated multi-agent network. The agents assess
- where you stand, build every part of the investment case with you, and run the raise, taking the
- venture from idea to investment ready. You get the work done, not a tool to do it with.</p>
- <div class="hcta"><a class="btn p lg" href="#cta">Get started</a>
-  <a class="btn lg" href="#cap">See the platform</a></div>
- <p class="hnote">Free to start. Your first venture assessment costs nothing, permanently.</p>
-
- <div class="jr" id="jr" role="img" aria-label="A venture moving from idea to investment ready, worked by a connected network of agents">
-  <div class="jr-rail">
-   <div class="jr-fill" id="jrf"></div>
-   <span class="jr-pip" data-p="0" style="left:0%"></span>
-   <span class="jr-pip" data-p="1" style="left:20%"></span>
-   <span class="jr-pip" data-p="2" style="left:40%"></span>
-   <span class="jr-pip" data-p="3" style="left:60%"></span>
-   <span class="jr-pip" data-p="4" style="left:80%"></span>
-   <span class="jr-pip" data-p="5" style="left:100%"></span>
-  </div>
-  <div class="jr-stages">
-   <div class="jr-st" data-p="0"><span>Idea</span></div>
-   <div class="jr-st" data-p="1"><span>Validated</span></div>
-   <div class="jr-st" data-p="2"><span>Modelled</span></div>
-   <div class="jr-st" data-p="3"><span>Built</span></div>
-   <div class="jr-st" data-p="4"><span>Data room</span></div>
-   <div class="jr-st last" data-p="5"><span>Investment ready</span></div>
-  </div>
-  <div class="jr-ag" id="jra">
-   <span class="jr-chip"><i>&#198;</i>Aether coordinates</span>
-   <span class="jr-chip"><i>ID</i>Identity</span>
-   <span class="jr-chip"><i>AS</i>Assessment</span>
-   <span class="jr-chip"><i>BD</i>Build</span>
-   <span class="jr-chip"><i>DF</i>Deal flow</span>
-   <span class="jr-chip"><i>+</i>more as the venture needs them</span>
-  </div>
-  <p class="jr-note">One venture record. Every agent reads and writes the same one, so nothing is
-  rebuilt and nothing contradicts.</p>
+ <div>
+  <div class="kick">Service as software</div>
+  <h1>Venture capital formation, <b>run by an agent network</b></h1>
+  <p class="hsub">QuidQuo staffs your venture with an integrated multi-agent network. The agentic team
+  assesses where you stand, builds every part of the investment case with you, and runs the raise,
+  taking the venture from idea to investment ready.</p>
+  <div class="hcta"><a class="btn p lg" href="#join">Get started</a>
+   <a class="btn lg" href="#platform">See the platform</a></div>
+  <p class="hnote">Free to start. Your first venture assessment costs nothing, permanently.</p>
  </div>
 
- <div class="app rv" role="img" aria-label="The QuidQuo workspace: agent sidebar, a conversation where Aether hands off to the Build agent, and the drafted section open beside it">
-  <div class="side">
-   <div class="slab">Your team</div>
-   <div class="sit on"><span class="mk">&#198;</span>Aether</div>
-   <div class="sit"><span class="mk">ID</span>Identity</div>
-   <div class="sit"><span class="mk">AS</span>Assessment<span class="bd">2</span></div>
-   <div class="sit"><span class="mk">BD</span>Build<span class="bd">5</span></div>
-   <div class="sit"><span class="mk">DF</span>Deal flow</div>
-   <div class="slab" style="padding-top:16px">Venture</div>
-   <div class="sit"><span class="mk">&#9679;</span>Investment case</div>
-   <div class="sit"><span class="mk">&#9679;</span>Data room</div>
-   <div class="sit"><span class="mk">&#9679;</span>Pipeline</div>
+ <div>
+  <div class="orb" role="img" aria-label="A venture at the centre of a rotating network of AI agents">
+   <svg viewBox="0 0 400 380">
+    <defs><radialGradient id="coreG" cx="42%" cy="36%">
+     <stop offset="0" stop-color="#D8FF6E"/><stop offset="1" stop-color="#A8E01F"/></radialGradient></defs>
+    <circle class="o-ring" cx="200" cy="190" r="176"/>
+    <circle class="o-ring dash" cx="200" cy="190" r="122"/>
+    <g class="o-spoke">
+     <path d="M200 190 L200 68"/><path d="M200 190 L306 129"/><path d="M200 190 L306 251"/>
+     <path d="M200 190 L200 312"/><path d="M200 190 L94 251"/><path d="M200 190 L94 129"/>
+    </g>
+    <g class="o-spin">
+     <g style="transform-origin:200px 68px"><circle class="o-node on" cx="200" cy="68" r="21"/><text class="o-lab" x="200" y="68">&#198;</text></g>
+     <g style="transform-origin:306px 129px"><circle class="o-node" cx="306" cy="129" r="19"/><text class="o-lab" x="306" y="129">ID</text></g>
+     <g style="transform-origin:306px 251px"><circle class="o-node" cx="306" cy="251" r="19"/><text class="o-lab" x="306" y="251">AS</text></g>
+     <g style="transform-origin:200px 312px"><circle class="o-node" cx="200" cy="312" r="19"/><text class="o-lab" x="200" y="312">BD</text></g>
+     <g style="transform-origin:94px 251px"><circle class="o-node" cx="94" cy="251" r="19"/><text class="o-lab" x="94" y="251">DF</text></g>
+     <g style="transform-origin:94px 129px"><circle class="o-node" cx="94" cy="129" r="19"/><text class="o-lab" x="94" y="129">+</text></g>
+    </g>
+    <g class="o-spin rev"><circle class="o-ring dash" cx="200" cy="190" r="176" stroke-dasharray="1 14"/></g>
+    <circle class="o-core" cx="200" cy="190" r="62"/>
+    <text class="o-ctext" x="200" y="182">Your venture</text>
+    <text class="o-sub" x="200" y="200">one shared record</text>
+   </svg>
   </div>
-  <div class="conv">
-   <div class="cm ae"><span class="av">&#198;</span><span class="bb">
-    <span class="who">Aether</span>
-    Your market section is the weakest part of the case, so I am bringing in Build. It owns market work.</span></div>
-   <div class="cm"><span class="av">BD</span><span class="bb">
-    <span class="hand">Handed off from Aether</span>
-    <span class="who">Build agent</span>
-    <b>Your deck sizes the market at EGP 340M.</b> That is the whole national logistics market. Counted
-    from the licence register, the part you can actually sell to is 17.0M. I have drafted the section
-    with the count shown. Replace the figure everywhere it appears?</span></div>
-   <div class="cm"><span class="av">NH</span><span class="bb">
-    <span class="who">You</span>Replace it.</span></div>
-   <div class="cm"><span class="av">BD</span><span class="bb">
-    <span class="who">Build agent</span>
-    Done, and corrected at the source rather than on the slide. Four other sections read from this
-    figure and have updated.</span></div>
-  </div>
-  <div class="art">
-   <div class="art-h"><b>4.3 Market size</b><span class="st">Draft</span></div>
-   <div class="dtab">
-    <div class="r h"><span>Layer</span><span>EGP / yr</span></div>
-    <div class="r"><span>Total market</span><span>17.0M</span></div>
-    <div class="r hi"><span>Serviceable</span><span>7.43M</span></div>
-    <div class="r"><span>Obtainable, 3 yr</span><span>2.50M</span></div>
-   </div>
-   <div class="anote">Counted from the licence register. Every buyer can be named.</div>
-   <div class="abtn"><span class="p">Approve</span><span>Amend</span></div>
-  </div>
+  <p class="o-cap">One venture record. Every agent reads and writes the same one.</p>
  </div>
 </div></header>
 
 <style>
-/* ---------- capability tabs ---------- */
-.tabs{display:flex;gap:7px;margin-top:34px;flex-wrap:wrap}
-.tb{padding:10px 18px;border-radius:8px;border:1px solid var(--line2);background:transparent;
+/* ================= WHY ================= */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+@media(max-width:940px){.why{grid-template-columns:1fr}}
+.wy{border:1px solid var(--line);border-radius:15px;background:var(--sunk);overflow:hidden}
+.wy .viz{height:132px;border-bottom:1px solid var(--line);background:
+ linear-gradient(180deg,rgba(255,255,255,.014),transparent);position:relative;overflow:hidden}
+.wy .viz svg{position:absolute;inset:0;width:100%;height:100%}
+.wy .tx{padding:20px 22px 24px}
+.wy h3{font-size:17.5px;font-weight:400;margin-bottom:8px}
+.wy p{margin:0;font-size:14.5px;color:var(--graphite)}
+.wy .fix{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);font-size:13.5px;color:var(--pale)}
+.gl{stroke:var(--line2);stroke-width:1;fill:none}
+.gr{stroke:var(--down);stroke-width:1.6;fill:none}
+.gg{stroke:var(--lime);stroke-width:1.6;fill:none}
+.gf{fill:rgba(198,255,52,.09)}
+.gdot{fill:var(--slate)}
+
+/* ================= AGENT NETWORK ================= */
+.netg{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(26px,4vw,56px);margin-top:40px;align-items:center}
+@media(max-width:940px){.netg{grid-template-columns:1fr;gap:32px}}
+.nbox{border:1px solid var(--line2);border-radius:16px;background:var(--sunk);padding:24px 20px}
+.nbox svg{width:100%;height:auto;display:block}
+.ne{stroke:var(--line2);stroke-width:1;fill:none;stroke-dasharray:130;stroke-dashoffset:130;
+ transition:stroke-dashoffset .9s var(--e)}
+.netg.on .ne{stroke-dashoffset:0}
+.np{stroke:var(--lime);stroke-width:1.6;fill:none;stroke-linecap:round;
+ filter:drop-shadow(0 0 4px rgba(198,255,52,.6))}
+.nn{opacity:0;transition:.55s var(--e)}
+.netg.on .nn{opacity:1}
+.nn circle{fill:var(--sunk);stroke:var(--line2)}
+.nn.hub circle{fill:url(#hubG);stroke:none}
+.nn text{font-family:'JetBrains Mono';font-size:9px;fill:var(--pale);text-anchor:middle;dominant-baseline:central}
+.nn.hub text{fill:#0A0B0A;font-family:Sora;font-size:14px;font-weight:700}
+.nlbl{font-family:Inter;font-size:8.5px;fill:var(--slate);text-anchor:middle}
+.nrec{fill:rgba(198,255,52,.05);stroke:rgba(198,255,52,.32);stroke-width:1;stroke-dasharray:4 4}
+.nbox .cap{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--slate)}
+.npts .p{padding:16px 0;border-top:1px solid var(--line)}
+.npts .p:last-child{border-bottom:1px solid var(--line)}
+.npts .p b{display:block;font-family:Sora;font-size:17px;color:var(--bone);font-weight:400;margin-bottom:4px}
+.npts .p p{margin:0;font-size:14.5px;color:var(--graphite)}
+.doors{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}
+.door{font-size:12.5px;padding:8px 14px;border-radius:8px;border:1px solid var(--line2);color:var(--dim)}
+.door.d1{border-color:rgba(198,255,52,.42);color:var(--pale);background:rgba(198,255,52,.06)}
+</style>
+
+<section id="why"><div class="wrap pad">
+ <div class="head rv"><div class="kick">The problem</div>
+  <h2>Founders raise on <b>a case nobody built</b></h2>
+  <p>Not because they are careless. Because building an investment case properly takes a team they
+  do not have.</p></div>
+ <div class="why">
+  <div class="wy rv"><div class="viz"><svg viewBox="0 0 300 132" preserveAspectRatio="none">
+   <path class="gl" d="M20 110 H280"/><path class="gl" d="M20 20 V110"/>
+   <path class="gr" d="M20 100 C90 96 150 92 280 26"/>
+   <circle class="gdot" cx="280" cy="26" r="3.5" fill="#FF3B5C"/>
+   <text x="256" y="18" style="font-family:'JetBrains Mono';font-size:9px;fill:#FF3B5C">340M</text>
+   <text x="26" y="98" style="font-family:'JetBrains Mono';font-size:9px;fill:#666B61">counted: 17M</text>
+  </svg></div>
+   <div class="tx"><h3>Numbers that do not survive a question</h3>
+    <p>A market sized as a share of a published total looks impressive until an investor asks how it
+    was counted.</p>
+    <div class="fix">Agents count from source instead</div></div></div>
+
+  <div class="wy rv"><div class="viz"><svg viewBox="0 0 300 132">
+   <g><rect x="34" y="26" width="58" height="34" rx="5" class="gl"/>
+   <rect x="118" y="52" width="58" height="34" rx="5" class="gl"/>
+   <rect x="204" y="20" width="58" height="34" rx="5" class="gl"/>
+   <rect x="72" y="88" width="58" height="34" rx="5" class="gl"/>
+   <rect x="168" y="96" width="58" height="34" rx="5" class="gl"/></g>
+   <path class="gl" d="M92 43 L204 37" stroke-dasharray="3 4"/>
+   <path class="gl" d="M147 86 L168 106" stroke-dasharray="3 4"/>
+   <circle cx="150" cy="66" r="5" fill="#FFB020" opacity=".8"/>
+  </svg></div>
+   <div class="tx"><h3>Work scattered across a dozen files</h3>
+    <p>The deck says one thing, the model another, the data room a third. Change one number and
+    nothing else knows.</p>
+    <div class="fix">One venture record, shared by every agent</div></div></div>
+
+  <div class="wy rv"><div class="viz"><svg viewBox="0 0 300 132">
+   <circle class="gl" cx="150" cy="66" r="42"/>
+   <path class="gg" d="M150 24 A42 42 0 0 1 186 87" />
+   <path class="gf" d="M150 66 L150 24 A42 42 0 0 1 186 87 Z"/>
+   <text x="150" y="62" style="font-family:'JetBrains Mono';font-size:15px;fill:#F4F6EE;text-anchor:middle">48</text>
+   <text x="150" y="79" style="font-family:Inter;font-size:8.5px;fill:#666B61;text-anchor:middle">not ready yet</text>
+  </svg></div>
+   <div class="tx"><h3>No honest read on readiness</h3>
+    <p>Every tool helps you send the deck. None of them tells you the deck should not go out yet.</p>
+    <div class="fix">The gate is computed, not negotiated</div></div></div>
+ </div>
+</div></section>
+
+<section id="agents"><div class="wrap pad">
+ <div class="head rv"><div class="kick">The agentic team</div>
+  <h2>Meet Aether, <b>and the network behind it</b></h2>
+  <p>Aether is your chief of staff and the agent you talk to by default. It works out what the venture
+  needs, briefs the specialist agents, hands work between them and reports back.</p></div>
+ <div class="netg" id="netg">
+  <div class="nbox rv">
+   <svg viewBox="0 0 420 250" aria-hidden="true">
+    <defs><radialGradient id="hubG" cx="40%" cy="35%">
+     <stop offset="0" stop-color="#D8FF6E"/><stop offset="1" stop-color="#A8E01F"/></radialGradient></defs>
+    <rect class="nrec" x="10" y="192" width="400" height="46" rx="10"/>
+    <text class="nlbl" x="210" y="211" style="font-size:9px;letter-spacing:.14em;fill:#8A8A85">ONE VENTURE RECORD</text>
+    <text class="nlbl" x="210" y="226">every agent reads and writes the same one</text>
+    <g id="nedges">
+     <path class="ne" d="M210 72 L72 136"/><path class="ne" d="M210 72 L141 136"/>
+     <path class="ne" d="M210 72 L279 136"/><path class="ne" d="M210 72 L348 136"/>
+     <path class="ne" d="M72 136 L72 192"/><path class="ne" d="M141 136 L141 192"/>
+     <path class="ne" d="M279 136 L279 192"/><path class="ne" d="M348 136 L348 192"/>
+     <path class="ne" d="M210 72 L210 192"/>
+    </g>
+    <g id="npulse"></g>
+    <g class="nn hub" style="transition-delay:.05s"><circle cx="210" cy="72" r="26"/><text x="210" y="72">&#198;</text></g>
+    <text class="nlbl" x="210" y="112" style="font-size:9px">Aether, chief of staff</text>
+    <g class="nn" style="transition-delay:.18s"><circle cx="72" cy="136" r="17"/><text x="72" y="136">ID</text></g>
+    <g class="nn" style="transition-delay:.28s"><circle cx="141" cy="136" r="17"/><text x="141" y="136">AS</text></g>
+    <g class="nn" style="transition-delay:.38s"><circle cx="279" cy="136" r="17"/><text x="279" y="136">BD</text></g>
+    <g class="nn" style="transition-delay:.48s"><circle cx="348" cy="136" r="17"/><text x="348" y="136">DF</text></g>
+   </svg>
+   <div class="cap">Agents do not chat in a group. They read and write structured state, so a change
+   one agent makes is a change every other agent already knows about.</div>
+  </div>
+  <div class="rv">
+   <div class="npts">
+    <div class="p"><b>Talk to one agent or all of them</b>
+     <p>Aether brokers by default. When you want a specialist directly, you open a thread with them.</p></div>
+    <div class="p"><b>The network grows with the venture</b>
+     <p>New agents join as the platform expands. You staff only what the venture needs, and stand
+     them down when the work changes.</p></div>
+    <div class="p"><b>Contradictions surface</b>
+     <p>When two agents disagree, Aether shows you both readings rather than quietly picking one.</p></div>
+   </div>
+   <div class="doors"><span class="door d1">Aether brokered, by default</span>
+    <span class="door">Direct to any agent</span></div>
+  </div>
+ </div>
+</div></section>
+
+<style>
+/* ================= WHAT THEY DO ================= */
+.rail{position:relative;margin-top:42px}
+.rl{position:relative;height:2px;background:var(--line2);border-radius:2px;margin:0 6%}
+.rf{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--acid),var(--lime));
+ border-radius:2px;width:0;transition:width 2.6s var(--e);box-shadow:0 0 12px rgba(198,255,52,.5)}
+.rp{position:absolute;top:50%;width:11px;height:11px;border-radius:50%;background:var(--carbon);
+ border:2px solid var(--line2);transform:translate(-50%,-50%);transition:.4s var(--e)}
+.rp.on{border-color:var(--lime);background:var(--lime);box-shadow:0 0 0 5px rgba(198,255,52,.16)}
+.rs{display:flex;justify-content:space-between;margin:0 6%;padding-top:18px}
+.rst{flex:1 1 0;text-align:center;min-width:0;padding:0 5px}
+.rst b{display:block;font-size:13.5px;color:var(--slate);font-weight:400;transition:color .4s var(--e)}
+.rst s{display:block;text-decoration:none;font-size:11.5px;color:#4A4F45;margin-top:4px;transition:color .4s var(--e)}
+.rst.on b{color:var(--bone)}.rst.on s{color:var(--graphite)}
+.rst.last.on b{color:var(--lime);font-weight:500}
+@media(max-width:860px){.rl{display:none}.rs{display:grid;grid-template-columns:1fr;margin:0}
+ .rst{text-align:left;padding:13px 0;border-top:1px solid var(--line)}
+ .rst:last-child{border-bottom:1px solid var(--line)}}
+
+/* ================= PLATFORM ================= */
+.tabs{display:flex;gap:7px;margin-top:32px;flex-wrap:wrap}
+.tb{padding:10px 19px;border-radius:8px;border:1px solid var(--line2);background:transparent;
  color:var(--graphite);cursor:pointer;font-family:Inter;font-size:14px;transition:.16s var(--e)}
 .tb:hover{color:var(--bone);border-color:#3E4437}
 .tb.on{background:var(--bone);color:#0A0B0A;border-color:var(--bone);font-weight:500}
-.panes{margin-top:20px;border:1px solid var(--line2);border-radius:16px;overflow:hidden;background:var(--sunk)}
-.pane{display:none;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr)}
+.panes{margin-top:18px;border:1px solid var(--line2);border-radius:16px;overflow:hidden;background:var(--sunk)}
+.pane{display:none;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
 .pane.on{display:grid;animation:pin .45s var(--e) both}
 @keyframes pin{from{opacity:0}to{opacity:1}}
-@media(max-width:900px){.pane.on{grid-template-columns:1fr}}
+@media(max-width:940px){.pane.on{grid-template-columns:1fr}}
 .pl{padding:clamp(24px,3vw,38px);display:flex;flex-direction:column;justify-content:center}
-.pl h3{font-size:clamp(21px,2.4vw,28px);font-weight:400;margin-bottom:10px}
-.pl p{margin:0 0 18px;font-size:15px;color:var(--graphite)}
+.pl h3{font-size:clamp(20px,2.2vw,26px);font-weight:400;margin-bottom:9px}
+.pl>p{margin:0 0 16px;font-size:14.5px;color:var(--graphite)}
 .pl ul{margin:0;padding:0;list-style:none}
-.pl li{padding:9px 0;border-top:1px solid var(--line);font-size:14px;color:var(--dim);
- display:flex;gap:10px}
+.pl li{padding:8px 0;border-top:1px solid var(--line);font-size:13.5px;color:var(--dim);display:flex;gap:9px}
 .pl li i{font-style:normal;color:var(--lime);flex:0 0 auto}
 .pr{border-left:1px solid var(--line);background:var(--carbon);padding:clamp(18px,2.4vw,26px);
  display:flex;align-items:center}
-@media(max-width:900px){.pr{border-left:0;border-top:1px solid var(--line)}}
-.ui{width:100%;min-width:0;border:1px solid var(--line2);border-radius:11px;background:var(--sunk);overflow:hidden}
-.ui-h{display:flex;align-items:center;gap:8px;padding:10px 13px;border-bottom:1px solid var(--line);
+@media(max-width:940px){.pr{border-left:0;border-top:1px solid var(--line)}}
+.scr{width:100%;min-width:0;border:1px solid var(--line2);border-radius:11px;background:var(--sunk);overflow:hidden}
+.scr-h{display:flex;align-items:center;gap:8px;padding:10px 13px;border-bottom:1px solid var(--line);
  font-size:11.5px;color:var(--slate)}
-.ui-h .dt{width:6px;height:6px;border-radius:50%;background:var(--up)}
-.ui-b{padding:13px}
-.line{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:12.5px}
-.line:last-child{border-bottom:0}
-.line .k{flex:1 1 auto;color:var(--dim);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.line .v{font-family:'JetBrains Mono';color:var(--bone);font-size:12px}
-.line .v.g{color:var(--up)}.line .v.r{color:var(--down)}.line .v.a{color:var(--hold)}
-.bar{height:4px;border-radius:3px;background:var(--line);overflow:hidden;flex:0 0 84px}
-.bar i{display:block;height:100%;background:var(--pale);border-radius:3px}
+.scr-h .dt{width:6px;height:6px;border-radius:50%;background:var(--up)}
+.scr-h .rr{margin-left:auto;font-family:'JetBrains Mono';font-size:9.5px}
+.scr-b{padding:13px}
+.ln{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:12.5px}
+.ln:last-child{border-bottom:0}
+.ln .k{flex:1 1 auto;color:var(--dim);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ln .v{font-family:'JetBrains Mono';color:var(--bone);font-size:12px;flex:0 0 auto}
+.ln .v.g{color:var(--up)}.ln .v.r{color:var(--down)}.ln .v.a{color:var(--hold)}
+.bar{height:4px;border-radius:3px;background:var(--line);overflow:hidden;flex:0 0 78px}
+.bar i{display:block;height:100%;background:var(--pale);border-radius:3px;width:0;transition:width .9s var(--e)}
 .bar i.low{background:var(--down)}
-.col{display:flex;gap:7px}
-.col div{flex:1 1 0;border:1px solid var(--line);border-radius:8px;padding:9px 8px;font-size:10.5px;
- color:var(--slate);text-align:center}
-.col div b{display:block;font-family:'JetBrains Mono';font-size:14px;color:var(--bone);font-weight:400;margin-bottom:2px}
-.col div.hot{border-color:rgba(198,255,52,.35);background:rgba(198,255,52,.05)}
-.col div.hot b{color:var(--lime)}
+.kan{display:flex;gap:6px}
+.kan div{flex:1 1 0;border:1px solid var(--line);border-radius:8px;padding:9px 6px;text-align:center;
+ font-size:10px;color:var(--slate)}
+.kan div b{display:block;font-family:'JetBrains Mono';font-size:15px;color:var(--bone);font-weight:400;margin-bottom:2px}
+.kan div.hot{border-color:rgba(198,255,52,.4);background:rgba(198,255,52,.06)}
+.kan div.hot b{color:var(--lime)}
 
-/* ---------- frustrations ---------- */
-.fx{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:38px}
-@media(max-width:900px){.fx{grid-template-columns:1fr}}
-.fc{border:1px solid var(--line);border-radius:14px;background:var(--sunk);overflow:hidden}
-.fc .q{padding:20px 22px 16px;font-size:16px;color:var(--graphite);font-style:italic;
- border-bottom:1px solid var(--line);background:rgba(255,255,255,.012)}
-.fc .a{padding:18px 22px 22px}
-.fc .a b{display:block;font-family:Sora;font-size:17px;color:var(--bone);font-weight:400;margin-bottom:7px}
-.fc .a p{margin:0;font-size:14px;color:var(--graphite)}
-
-/* ---------- how ---------- */
-.hw{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:38px}
-@media(max-width:880px){.hw{grid-template-columns:1fr}}
-.hs{padding:24px 26px 28px;border:1px solid var(--line);background:var(--sunk)}
-.hs:first-child{border-radius:14px 0 0 14px}.hs:last-child{border-radius:0 14px 14px 0}
-.hs+.hs{border-left:0}
-@media(max-width:880px){.hs{border-radius:0}.hs+.hs{border-left:1px solid var(--line);border-top:0}
- .hs:first-child{border-radius:14px 14px 0 0}.hs:last-child{border-radius:0 0 14px 14px}}
-.hs .n{font-family:'JetBrains Mono';font-size:11px;color:var(--lime);margin-bottom:13px}
-.hs h3{font-size:20px;font-weight:400;margin-bottom:8px}
-.hs p{margin:0;font-size:14.5px;color:var(--graphite)}
+/* ================= WHO ================= */
+.who{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:38px}
+@media(max-width:900px){.who{grid-template-columns:1fr}}
+.wc{border:1px solid var(--line);border-radius:15px;padding:24px;background:var(--sunk);position:relative;overflow:hidden}
+.wc .n{font-family:'JetBrains Mono';font-size:11px;color:var(--lime);margin-bottom:14px}
+.wc h3{font-size:18px;font-weight:400;margin-bottom:7px}
+.wc p{margin:0;font-size:14.5px;color:var(--graphite)}
+.wc .mini{display:flex;gap:4px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.wc .mini span{height:22px;border-radius:5px;border:1px solid var(--line2);flex:1 1 0}
+.wc .mini span.f{background:rgba(198,255,52,.16);border-color:rgba(198,255,52,.4)}
+.wc .mini small{align-self:center;font-size:11px;color:var(--slate);padding-left:6px;white-space:nowrap}
 </style>
 
-<section id="cap"><div class="wrap pad">
- <div class="head rv"><h2>The platform, <b>and what the team does in it</b></h2>
- <p>Every surface exists because the work produced it. Nothing here is a form you fill in.</p></div>
+<section id="work"><div class="wrap pad">
+ <div class="head rv"><div class="kick">What they do</div>
+  <h2>Comprehensive, <b>from idea to investment ready</b></h2>
+  <p>Not a point solution bolted onto the end of the journey. The agentic team works every stage, and
+  every stage writes into the same venture record.</p></div>
+ <div class="rail rv" id="rail">
+  <div class="rl"><div class="rf" id="rf"></div>
+   <span class="rp" style="left:0%"></span><span class="rp" style="left:20%"></span>
+   <span class="rp" style="left:40%"></span><span class="rp" style="left:60%"></span>
+   <span class="rp" style="left:80%"></span><span class="rp" style="left:100%"></span></div>
+  <div class="rs">
+   <div class="rst"><b>Idea</b><s>Generated, targeted, shortlisted</s></div>
+   <div class="rst"><b>Validated</b><s>Real interviews, not simulated</s></div>
+   <div class="rst"><b>Modelled</b><s>Market counted, economics built</s></div>
+   <div class="rst"><b>Built</b><s>Strategy, product, brand, operations</s></div>
+   <div class="rst"><b>Documented</b><s>Deck, data room, cap table, terms</s></div>
+   <div class="rst last"><b>Investment ready</b><s>Gate cleared on evidence</s></div>
+  </div>
+ </div>
+</div></section>
+
+<section id="platform"><div class="wrap pad">
+ <div class="head rv"><div class="kick">The platform</div>
+  <h2>Four surfaces, <b>each worked in depth</b></h2>
+  <p>Where you watch the agentic team work, review what it produces, and decide.</p></div>
  <div class="tabs rv" id="tabs"></div>
  <div class="panes rv" id="panes"></div>
 </div></section>
 
-<style>
-/* ---------- the network ---------- */
-.net{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(28px,4.5vw,60px);margin-top:40px;align-items:center}
-@media(max-width:920px){.net{grid-template-columns:1fr;gap:34px}}
-.nviz{position:relative;border:1px solid var(--line2);border-radius:16px;background:var(--sunk);
- padding:26px 22px;overflow:hidden}
-.nviz svg{display:block;width:100%;height:auto}
-.nl-e{stroke:var(--line2);stroke-width:1;fill:none;stroke-dasharray:120;stroke-dashoffset:120;
- transition:stroke-dashoffset .9s var(--e)}
-.net.on .nl-e{stroke-dashoffset:0}
-.nl-p{stroke:var(--lime);stroke-width:1.5;fill:none;stroke-linecap:round;opacity:0;
- filter:drop-shadow(0 0 4px rgba(198,255,52,.6))}
-.nd{opacity:0;transform:translateY(4px);transition:.55s var(--e)}
-.net.on .nd{opacity:1;transform:none}
-.nd circle{fill:var(--sunk);stroke:var(--line2);stroke-width:1}
-.nd.core circle{fill:url(#core);stroke:none}
-.nd text{font-family:'JetBrains Mono';font-size:9px;fill:var(--pale);text-anchor:middle;dominant-baseline:central}
-.nd.core text{fill:#0A0B0A;font-size:13px;font-weight:700;font-family:Sora}
-.nviz .lb{font-family:Inter;font-size:8.5px;fill:var(--slate)}
-.nrec{fill:none;stroke:rgba(198,255,52,.3);stroke-width:1;stroke-dasharray:3 4}
-.nviz .cap{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--slate)}
-.npt{padding:16px 0;border-top:1px solid var(--line)}
-.npt:last-child{border-bottom:1px solid var(--line)}
-.npt b{display:block;font-family:Sora;font-size:17.5px;color:var(--bone);font-weight:400;margin-bottom:5px}
-.npt p{margin:0;font-size:14.5px;color:var(--graphite)}
-
-/* ---------- who it is for ---------- */
-.who{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:38px}
-@media(max-width:900px){.who{grid-template-columns:1fr}}
-.wc{border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--sunk)}
-.wc .ic{width:32px;height:32px;border-radius:9px;background:var(--line);color:var(--pale);
- display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono';font-size:11px;margin-bottom:14px}
-.wc h3{font-size:18px;font-weight:400;margin-bottom:7px}
-.wc p{margin:0;font-size:14.5px;color:var(--graphite)}
-.wc .tag{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;color:var(--pale)}
-</style>
-
-<section id="agents"><div class="wrap pad">
- <div class="head rv"><h2>Meet Aether, <b>and the network behind it</b></h2>
- <p>Aether is your chief of staff. It is the agent you talk to by default: it works out what your
- venture needs, briefs the specialist agents, hands work between them and reports back. You can also
- go straight to any agent whenever you want.</p></div>
- <div class="net" id="netviz">
-  <div class="nviz rv">
-   <svg viewBox="0 0 420 260" aria-hidden="true">
-    <defs><radialGradient id="core"><stop offset="0" stop-color="#C6FF34"/><stop offset="1" stop-color="#A8E01F"/></radialGradient></defs>
-    <rect class="nrec" x="8" y="196" width="404" height="52" rx="10"/>
-    <text x="210" y="221" class="lb" style="font-size:9px;fill:#8A8A85;letter-spacing:.12em" text-anchor="middle">ONE VENTURE RECORD</text>
-    <text x="210" y="236" class="lb" text-anchor="middle">every agent reads and writes the same one</text>
-    <g id="edges">
-     <path class="nl-e" d="M210 74 L70 140"/><path class="nl-e" d="M210 74 L140 140"/>
-     <path class="nl-e" d="M210 74 L280 140"/><path class="nl-e" d="M210 74 L350 140"/>
-     <path class="nl-e" d="M70 140 L70 196"/><path class="nl-e" d="M140 140 L140 196"/>
-     <path class="nl-e" d="M280 140 L280 196"/><path class="nl-e" d="M350 140 L350 196"/>
-     <path class="nl-e" d="M210 74 L210 196"/>
-    </g>
-    <g id="pulses"></g>
-    <g class="nd core" style="transition-delay:.05s"><circle cx="210" cy="74" r="27"/><text x="210" y="74">&#198;</text></g>
-    <text x="210" y="116" class="lb" text-anchor="middle" style="font-size:9.5px">Aether, chief of staff</text>
-    <g class="nd" style="transition-delay:.2s"><circle cx="70" cy="140" r="17"/><text x="70" y="140">ID</text></g>
-    <g class="nd" style="transition-delay:.3s"><circle cx="140" cy="140" r="17"/><text x="140" y="140">AS</text></g>
-    <g class="nd" style="transition-delay:.4s"><circle cx="280" cy="140" r="17"/><text x="280" y="140">BD</text></g>
-    <g class="nd" style="transition-delay:.5s"><circle cx="350" cy="140" r="17"/><text x="350" y="140">DF</text></g>
-   </svg>
-   <div class="cap">Agents do not message each other in a group chat. They read and write structured
-   state, so a change one agent makes is a change every other agent already knows about.</div>
-  </div>
-  <div class="rv">
-   <div class="npt"><b>Talk to one agent or all of them</b>
-    <p>Aether brokers by default. When you want the specialist directly, you open a thread with them,
-    the way you would in a real company.</p></div>
-   <div class="npt"><b>The network grows with the venture</b>
-    <p>New agents join as the platform expands, and you staff only the ones your venture needs. Stand
-    them down when the work changes.</p></div>
-   <div class="npt"><b>Contradictions surface, they are not smoothed over</b>
-    <p>When two agents disagree, Aether shows you both readings rather than quietly picking one.</p></div>
-  </div>
- </div>
-</div></section>
-
 <section id="who"><div class="wrap pad">
- <div class="head rv"><h2>Built for the people <b>who carry the raise</b></h2>
- <p>One venture or fifty, the agents work the same way.</p></div>
+ <div class="head rv"><div class="kick">Who it is for</div>
+  <h2>Built for the people <b>who carry the raise</b></h2>
+  <p>One venture or fifty, the agents work the same way.</p></div>
  <div class="who">
-  <div class="wc rv"><div class="ic">01</div><h3>Founders</h3>
-   <p>You have the venture and not the team. The agents give you the operating capability a raise
-   needs, without hiring for it.</p>
-   <div class="tag">Start with the free assessment</div></div>
-  <div class="wc rv"><div class="ic">02</div><h3>Portfolios and venture arms</h3>
-   <p>Every venture gets its own agents and its own record. Assessed on their own, never averaged
-   into a portfolio score that hides the one in trouble.</p>
-   <div class="tag">Staff each venture separately</div></div>
-  <div class="wc rv"><div class="ic">03</div><h3>Accelerators</h3>
+  <div class="wc rv"><div class="n">01</div><h3>Founders</h3>
+   <p>You have the venture and not the team. The agentic team gives you the operating capability a
+   raise needs, without hiring for it.</p>
+   <div class="mini"><span class="f"></span><span class="f"></span><span class="f"></span>
+    <span></span><span></span><small>one venture</small></div></div>
+  <div class="wc rv"><div class="n">02</div><h3>Portfolios and venture arms</h3>
+   <p>Every venture gets its own agents and its own record, assessed on its own, never averaged into
+   a portfolio score that hides the one in trouble.</p>
+   <div class="mini"><span class="f"></span><span class="f"></span><span class="f"></span>
+    <span class="f"></span><span class="f"></span><small>many, separate</small></div></div>
+  <div class="wc rv"><div class="n">03</div><h3>Accelerators</h3>
    <p>Put the same standard of investment case behind every company in a cohort, and see which of
    them are actually ready.</p>
-   <div class="tag">One record per company</div></div>
+   <div class="mini"><span class="f"></span><span></span><span class="f"></span>
+    <span class="f"></span><span></span><small>a cohort</small></div></div>
  </div>
 </div></section>
-
-<section id="fix"><div class="wrap pad">
- <div class="head rv"><h2>What founders keep running into, <b>and what the agents do about it</b></h2></div>
- <div class="fx">
-  <div class="fc rv"><div class="q">&ldquo;I have no idea if my deck is actually ready to send.&rdquo;</div>
-   <div class="a"><b>The gate is computed</b><p>Readiness is scored from evidence, not opinion. If the
-   case is not there, your team withholds the materials and shows you exactly what is blocking.</p></div></div>
-  <div class="fc rv"><div class="q">&ldquo;Every tool gives me a template. I still have to do the work.&rdquo;</div>
-   <div class="a"><b>The team does the work</b><p>Service as software. Agents produce the sections,
-   the model and the data room. You review and approve rather than fill in.</p></div></div>
-  <div class="fc rv"><div class="q">&ldquo;I changed one number and now my whole plan is wrong.&rdquo;</div>
-   <div class="a"><b>One venture record</b><p>Change an assumption and every section that depends on
-   it updates, with anything it breaks flagged rather than left to be discovered.</p></div></div>
- </div>
-</div></section>
-
-<section id="how"><div class="wrap pad">
- <div class="head rv"><h2>How it works</h2></div>
- <div class="hw">
-  <div class="hs rv"><div class="n">01</div><h3>Get assessed</h3>
-   <p>A diagnosis of where your venture stands, with every score traced to the evidence behind it.
-   Free, permanently, for your first venture.</p></div>
-  <div class="hs rv"><div class="n">02</div><h3>Staff your team</h3>
-   <p>The assessment says what your venture needs and which agents serve that need. You staff them
-   against the venture, and stand them down when the work changes.</p></div>
-  <div class="hs rv"><div class="n">03</div><h3>Build and raise</h3>
-   <p>The team builds the investment case with you and runs the raise. The data room assembles itself
-   as the work happens.</p></div>
- </div>
-</div></section>
-
-<script>
-(function(){
- var T=[
-  {k:'Assess',h:'Know where you actually stand',
-   p:'A diagnosis across every dimension an investor looks at, with each score traceable to the evidence that produced it, and gaps recorded rather than guessed.',
-   li:['Your figures recalculated from source','Confidence reported beside every score','Blocking items ordered by cost to fix'],
-   ui:['Venture assessment','<div class="line"><span class="k">Desirability</span><span class="bar"><i style="width:58%"></i></span><span class="v">58</span></div>'+
-      '<div class="line"><span class="k">Viability</span><span class="bar"><i class="low" style="width:41%"></i></span><span class="v r">41</span></div>'+
-      '<div class="line"><span class="k">Feasibility</span><span class="bar"><i style="width:54%"></i></span><span class="v">54</span></div>'+
-      '<div class="line"><span class="k">Impact</span><span class="bar"><i style="width:52%"></i></span><span class="v">52</span></div>'+
-      '<div class="line"><span class="k">Confidence</span><span class="v a">0.38</span></div>']},
-  {k:'Build',h:'The investment case, section by section',
-   p:'Your team drafts each section in full, opens it beside the conversation, and waits for your approval before anything reaches the venture record.',
-   li:['Numbers counted from source, never estimated','Contradictions surfaced, never resolved silently','The data room assembles as a byproduct'],
-   ui:['Investment case','<div class="line"><span class="k">Market context</span><span class="v g">approved</span></div>'+
-      '<div class="line"><span class="k">Business model</span><span class="v g">approved</span></div>'+
-      '<div class="line"><span class="k">Financial model</span><span class="v g">approved</span></div>'+
-      '<div class="line"><span class="k">Investment readiness</span><span class="v a">in draft</span></div>'+
-      '<div class="line"><span class="k">Data room</span><span class="v">queued</span></div>']},
-  {k:'Raise',h:'The raise, modelled as it behaves',
-   p:'Deals stall, reverse and die. Every movement is captured with its reason attached, so a pass now is a warm contact at the next round rather than a dead end.',
-   li:['Materials withheld until the evidence supports them','Every stage move recorded with its reason','Your team drafts; you send'],
-   ui:['Pipeline','<div class="col"><div><b>4</b>scouting</div><div><b>3</b>aligning</div>'+
-      '<div class="hot"><b>2</b>diligence</div><div><b>1</b>committed</div></div>'+
-      '<div class="line" style="margin-top:11px"><span class="k">Delta Seed</span><span class="v a">overdue 5d</span></div>'+
-      '<div class="line"><span class="k">Levant Ventures</span><span class="v">terms received</span></div>']},
-  {k:'Watch',h:'See what your team is doing',
-   p:'The command centre is where you watch the work: what each agent is on, what is waiting on you, and where two of them disagree.',
-   li:['Every run visible and interruptible','Contradictions raised, not resolved for you','Capacity shown as work done, not as a bill'],
-   ui:['Command centre','<div class="line"><span class="k">Build, financial model</span><span class="v g">running</span></div>'+
-      '<div class="line"><span class="k">Needs your decision</span><span class="v a">3</span></div>'+
-      '<div class="line"><span class="k">Contradiction raised</span><span class="v r">1</span></div>'+
-      '<div class="line"><span class="k">This month</span><span class="v">42 sections produced</span></div>']}
- ];
- var tabs=document.getElementById('tabs'),panes=document.getElementById('panes');
- T.forEach(function(t,i){
-  var b=document.createElement('button');b.type='button';b.className='tb'+(i===0?' on':'');b.textContent=t.k;
-  b.onclick=function(){
-   tabs.querySelectorAll('.tb').forEach(function(x){x.classList.remove('on')});b.classList.add('on');
-   panes.querySelectorAll('.pane').forEach(function(x){x.classList.remove('on')});
-   panes.children[i].classList.add('on');};
-  tabs.appendChild(b);
-  var d=document.createElement('div');d.className='pane'+(i===0?' on':'');
-  d.innerHTML='<div class="pl"><h3>'+t.h+'</h3><p>'+t.p+'</p><ul>'+
-   t.li.map(function(l){return '<li><i>&#10003;</i>'+l+'</li>'}).join('')+'</ul></div>'+
-   '<div class="pr"><div class="ui"><div class="ui-h"><span class="dt"></span>'+t.ui[0]+'</div>'+
-   '<div class="ui-b">'+t.ui[1]+'</div></div></div>';
-  panes.appendChild(d);
- });
-})();
-</script>
 
 <style>
-.cta{text-align:center}
-.cta::before{content:"";position:absolute;left:50%;bottom:-40%;width:min(150vw,1200px);height:800px;
+/* ================= JOIN ================= */
+.join{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.join::before{content:"";position:absolute;left:50%;bottom:-45%;width:min(150vw,1200px);height:820px;
  transform:translateX(-50%);pointer-events:none;
- background:radial-gradient(ellipse at 50% 100%,rgba(198,255,52,.11),transparent 62%)}
-.cta .wrap{position:relative;z-index:2}
-.cta h2{font-size:clamp(30px,4.8vw,58px);font-weight:200;letter-spacing:-.045em}
-.cta h2 b{font-weight:500;color:var(--lime)}
-.cta p{margin:20px auto 0;max-width:32em;font-size:17px;color:var(--graphite)}
-.frm{display:flex;gap:9px;max-width:460px;margin:30px auto 0;flex-wrap:wrap}
+ background:radial-gradient(ellipse at 50% 100%,rgba(198,255,52,.12),transparent 60%)}
+.join .wrap{position:relative;z-index:2}
+.jgrid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(28px,4.5vw,64px);align-items:center}
+@media(max-width:940px){.jgrid{grid-template-columns:1fr;gap:36px}}
+.join h2{font-size:clamp(29px,4.2vw,50px);font-weight:200;letter-spacing:-.042em}
+.join h2 b{font-weight:500;color:var(--lime)}
+.join .lede{margin-top:18px;font-size:17px;color:var(--graphite);max-width:31em}
+.frm{display:flex;gap:9px;margin-top:26px;flex-wrap:wrap;max-width:470px}
 .frm input{flex:1 1 230px;min-width:0;padding:14px 18px;border-radius:9px;background:var(--raised);
  border:1px solid var(--line2);color:var(--bone);font-family:Inter;font-size:15px}
 .frm input::placeholder{color:var(--slate)}
 .frm input:focus{outline:none;border-color:rgba(198,255,52,.5)}
-.alt{margin-top:15px;font-size:13.5px;color:var(--slate)}
+.alt{margin-top:14px;font-size:13.5px;color:var(--slate)}
 .alt a{color:var(--pale);border-bottom:1px solid rgba(228,255,166,.28)}
-footer .wrap{padding-top:48px;padding-bottom:34px;display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap}
-.fb{width:146px}.fb svg{width:100%;height:auto;display:block}
-.ftag{margin-top:13px;font-size:13.5px;color:var(--slate);max-width:23em}
-.flinks{display:flex;gap:36px;flex-wrap:wrap}
+.steps{border:1px solid var(--line2);border-radius:16px;background:var(--sunk);padding:8px 22px 22px}
+.stp{display:flex;gap:15px;padding:16px 0;border-bottom:1px solid var(--line)}
+.stp:last-child{border-bottom:0}
+.stp .n{flex:0 0 auto;width:26px;height:26px;border-radius:8px;background:var(--line);color:var(--slate);
+ font-family:'JetBrains Mono';font-size:10.5px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.stp.now .n{background:linear-gradient(135deg,var(--acid),var(--lime));color:#0A0B0A;font-weight:700}
+.stp .tx b{display:block;font-size:15.5px;color:var(--bone);font-weight:500;margin-bottom:3px}
+.stp .tx p{margin:0;font-size:13.5px;color:var(--graphite)}
+.stp .tag{margin-left:auto;flex:0 0 auto;font-family:'JetBrains Mono';font-size:9px;letter-spacing:.08em;
+ text-transform:uppercase;color:var(--lime);padding-top:5px}
+footer .wrap{padding-top:48px;padding-bottom:32px;display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap}
+.fb{width:144px}.fb svg{width:100%;height:auto;display:block}
+.ftag{margin-top:12px;font-size:13.5px;color:var(--slate);max-width:23em}
+.flinks{display:flex;gap:34px;flex-wrap:wrap}
 footer h5{font-family:Inter;font-size:12px;color:var(--dim);margin:0 0 10px;font-weight:500}
 footer ul{margin:0;padding:0;list-style:none}
 footer li{padding:3px 0;font-size:13.5px;color:var(--slate)}
@@ -511,27 +438,44 @@ footer li a:hover{color:var(--bone)}
 .fbot .wrap{padding-top:16px;padding-bottom:22px;display:block}
 </style>
 
-<section class="cta" id="cta"><div class="wrap pad">
- <h2 class="rv">Find out where <b>your venture stands</b></h2>
- <p class="rv">About twenty minutes, no deck required. By the end you will know which of your blocking
- items cost almost nothing to clear.</p>
- <form class="frm rv" onsubmit="event.preventDefault();this.querySelector('input').value='';alert('Prototype. Next: your assessment begins.');">
-  <input type="email" required placeholder="you@yourventure.com" aria-label="Work email">
-  <button class="btn p" type="submit">Get started free</button>
- </form>
- <p class="alt rv">Or continue with <a href="#cta">Google</a> or <a href="#cta">LinkedIn</a>.
- Already building? <a href="#cta">Sign in</a>.</p>
+<section class="join" id="join"><div class="wrap pad">
+ <div class="jgrid">
+  <div class="rv">
+   <div class="kick">Join the platform</div>
+   <h2>Put an agentic team <b>on your venture</b></h2>
+   <p class="lede">You are joining the platform, not buying a report. The assessment is simply where
+   the agents start, because they will not build on a case they have not read.</p>
+   <form class="frm" onsubmit="event.preventDefault();this.querySelector('input').value='';alert('Prototype. Next: Aether introduces itself, then your assessment begins.');">
+    <input type="email" required placeholder="you@yourventure.com" aria-label="Work email">
+    <button class="btn p" type="submit">Get started free</button>
+   </form>
+   <p class="alt">Or continue with <a href="#join">Google</a> or <a href="#join">LinkedIn</a>.
+   Already building? <a href="#join">Sign in</a>.</p>
+  </div>
+  <div class="steps rv">
+   <div class="stp now"><span class="n">01</span><span class="tx"><b>Aether meets you</b>
+    <p>Your chief of staff introduces itself and learns the venture.</p></span><span class="tag">today</span></div>
+   <div class="stp now"><span class="n">02</span><span class="tx"><b>The assessment runs</b>
+    <p>A full diagnosis with every score traced to evidence.</p></span><span class="tag">free</span></div>
+   <div class="stp"><span class="n">03</span><span class="tx"><b>You staff the agentic team</b>
+    <p>Told what the venture needs and which agents serve it, then you choose.</p></span></div>
+   <div class="stp"><span class="n">04</span><span class="tx"><b>They build the investment case</b>
+    <p>Idea generation through to investment readiness, section by section.</p></span></div>
+   <div class="stp"><span class="n">05</span><span class="tx"><b>They run the raise</b>
+    <p>Materials, valuation, terms and full pipeline management.</p></span></div>
+  </div>
+ </div>
 </div></section>
 
 <footer>
  <div class="wrap">
   <div><div class="fb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2111 430"><g transform="translate(-310.13,-0.01) scale(1.0)"><path fill="#A8E01F" d="M403.97,273.21c0-157.93,72.2-171.56,162.13-171.56,22,0,43.67,1.22,63.66,5.4-18-71.16-83.64-77.69-157.26-98.37-110.31-30.99-151.66,22.86-160.93,132.85-10.24,121.46,35.5,162.73,97.25,175.66-3.16-12.52-4.85-27.03-4.85-43.97Z"/><path fill="#C6FF34" d="M571.86,107.4c-89.93,0-162.12,13.63-162.13,171.56,0,113.31,75.55,118.03,162.13,142.36,110.31,30.99,151.66-22.86,160.93-132.85,13.55-160.8-70.99-181.07-160.93-181.07Z"/></g><g transform="translate(484.29720000000003,-683.81) scale(1.5578)"><path fill="#F4F6EE" d="M98.91,490.14c48.83,0,75.98,27.65,75.98,84.21,0,39.86-13.45,65.52-38.62,76.98l15.94,33.38h-29.65l-12.95-26.91c-3.49.5-6.98.5-10.71.5h-22.92c-49.08,0-75.98-27.65-75.98-83.96s27.16-84.21,75.98-84.21h22.92ZM108.62,593.28l14.7,31.14c15.2-7.23,21.92-23.42,21.92-50.08,0-38.37-13.95-54.81-46.34-54.81h-22.92c-32.39,0-46.59,16.44-46.59,54.81s13.95,54.56,46.59,54.56h19.93l-16.94-35.63h29.65Z"/><path fill="#F4F6EE" d="M218.99,526.76v78.73c0,15.45,11.46,27.16,32.39,27.16h21.43c20.93,0,32.14-11.71,32.14-27.16v-78.73h25.91v79.72c0,30.39-19.43,51.82-57.05,51.82h-24.41c-37.62,0-57.05-21.43-57.05-51.82v-79.72h26.66Z"/><path fill="#F4F6EE" d="M379.68,477.18v30.64h-26.66v-30.64h26.66ZM379.43,526.76v131.54h-26.41v-131.54h26.41Z"/><path fill="#F4F6EE" d="M537.88,469.71v132.29c0,37.87-16.94,56.3-48.33,56.3h-36.37c-35.13,0-57.05-21.43-57.05-65.77s21.92-65.77,57.05-65.77h58.05v-57.05h26.66ZM511.22,600.75v-48.58h-55.56c-22.67,0-32.89,11.96-32.89,40.36s10.21,40.11,32.89,40.11h26.16c21.18,0,29.4-9.47,29.4-31.89Z"/><path fill="#F4F6EE" d="M654.72,490.14c48.83,0,75.98,27.65,75.98,84.21,0,39.86-13.45,65.52-38.62,76.98l15.94,33.38h-29.65l-12.95-26.91c-3.49.5-6.98.5-10.71.5h-22.92c-49.08,0-75.98-27.65-75.98-83.96s27.16-84.21,75.98-84.21h22.92ZM664.43,593.28l14.7,31.14c15.2-7.23,21.92-23.42,21.92-50.08,0-38.37-13.95-54.81-46.34-54.81h-22.92c-32.39,0-46.59,16.44-46.59,54.81s13.95,54.56,46.59,54.56h19.93l-16.94-35.63h29.65Z"/><path fill="#F4F6EE" d="M774.8,526.76v78.73c0,15.45,11.46,27.16,32.39,27.16h21.43c20.93,0,32.14-11.71,32.14-27.16v-78.73h25.91v79.72c0,30.39-19.43,51.82-57.05,51.82h-24.41c-37.62,0-57.05-21.43-57.05-51.82v-79.72h26.66Z"/><path fill="#F4F6EE" d="M987.31,526.76c34.88,0,57.05,21.42,57.05,65.77s-22.17,65.77-57.05,65.77h-27.65c-35.13,0-57.05-21.43-57.05-65.77s21.92-65.77,57.05-65.77h27.65ZM962.15,552.17c-22.92,0-32.89,11.96-32.89,40.36s9.97,40.11,32.89,40.11h22.67c22.67,0,32.89-11.71,32.89-40.11s-10.21-40.36-32.89-40.36h-22.67Z"/></g></svg></div>
-   <p class="ftag">Capital formation for founders, staffed by a team of agents rather than sold as a tool.</p></div>
+   <p class="ftag">Venture capital formation, run by an integrated agent network.</p></div>
   <div class="flinks">
-   <div><h5>Platform</h5><ul><li><a href="#cap">What it does</a></li><li><a href="#how">How it works</a></li>
-    <li><a href="#fix">Why QuidQuo</a></li></ul></div>
-   <div><h5>Company</h5><ul><li><a href="#cta">About</a></li><li><a href="#cta">Careers</a></li>
-    <li><a href="#cta">Privacy</a></li></ul></div>
+   <div><h5>Platform</h5><ul><li><a href="#agents">The agents</a></li><li><a href="#work">What they do</a></li>
+    <li><a href="#platform">The platform</a></li><li><a href="#who">Who it is for</a></li></ul></div>
+   <div><h5>Company</h5><ul><li><a href="#join">About</a></li><li><a href="#join">Careers</a></li>
+    <li><a href="#join">Privacy</a></li></ul></div>
   </div>
  </div>
  <div class="fbot"><div class="wrap">&copy; 2026 QuidQuo &middot; Built toward an exchange for private-market assets.</div></div>
@@ -549,73 +493,103 @@ footer li a:hover{color:var(--bone)}
   el.style.transitionDelay=(Math.min(i%3,2)*70)+'ms';io.observe(el)});
 
  /* journey rail */
- var jr=document.getElementById('jr');
- if(jr){
-  var fill=document.getElementById('jrf'),pips=jr.querySelectorAll('.jr-pip'),
-      sts=jr.querySelectorAll('.jr-st'),chips=jr.querySelectorAll('.jr-chip');
-  function runJr(){
-   pips.forEach(function(x){x.classList.remove('on')});
-   sts.forEach(function(x){x.classList.remove('on')});
-   chips.forEach(function(x){x.classList.remove('on','act')});
-   fill.style.width='0';
-   setTimeout(function(){fill.style.width='100%'},120);
-   pips.forEach(function(x,i){setTimeout(function(){x.classList.add('on')},180+i*450)});
-   sts.forEach(function(x,i){setTimeout(function(){x.classList.add('on')},180+i*450)});
-   chips.forEach(function(x,i){setTimeout(function(){x.classList.add('on')},420+i*160)});
-   var k=0;
-   setInterval(function(){
-    chips.forEach(function(x){x.classList.remove('act')});
-    chips[k%chips.length].classList.add('act');k++;
-   },1500);
+ var rail=document.getElementById('rail');
+ if(rail){
+  var rf=document.getElementById('rf'),rps=rail.querySelectorAll('.rp'),rss=rail.querySelectorAll('.rst');
+  function runRail(){
+   if(rf) rf.style.width='0';
+   rps.forEach(function(x){x.classList.remove('on')});rss.forEach(function(x){x.classList.remove('on')});
+   setTimeout(function(){if(rf) rf.style.width='100%'},120);
+   rps.forEach(function(x,i){setTimeout(function(){x.classList.add('on')},200+i*430)});
+   rss.forEach(function(x,i){setTimeout(function(){x.classList.add('on')},200+i*430)});
   }
-  if(reduce){fill.style.width='100%';pips.forEach(function(x){x.classList.add('on')});
-   sts.forEach(function(x){x.classList.add('on')});chips.forEach(function(x){x.classList.add('on')});}
-  else{var j=false;new IntersectionObserver(function(es){es.forEach(function(e){
-   if(e.isIntersecting&&!j){j=true;runJr()}})},{threshold:.3}).observe(jr);}
+  if(reduce){if(rf) rf.style.width='100%';
+   rps.forEach(function(x){x.classList.add('on')});rss.forEach(function(x){x.classList.add('on')});}
+  else{var r1=false;new IntersectionObserver(function(es){es.forEach(function(e){
+   if(e.isIntersecting&&!r1){r1=true;runRail()}})},{threshold:.3}).observe(rail);}
  }
 
- /* network: edges draw, then work pulses along them */
- var net=document.getElementById('netviz');
- if(net){
-  if(reduce) net.classList.add('on');
-  else{
-   var n=false;
-   new IntersectionObserver(function(es){es.forEach(function(e){
-    if(e.isIntersecting&&!n){n=true;net.classList.add('on');startPulse()}})},{threshold:.34}).observe(net);
-  }
-  function startPulse(){
-   var NS='http://www.w3.org/2000/svg',g=document.getElementById('pulses'),
-       edges=[...document.querySelectorAll('#edges .nl-e')],i=0;
+ /* agent network */
+ var netg=document.getElementById('netg');
+ if(netg){
+  function pulse(){
+   var NS='http://www.w3.org/2000/svg',g=document.getElementById('npulse'),
+       eds=[].slice.call(document.querySelectorAll('#nedges .ne')),i=0;
    setInterval(function(){
-    var src=edges[i%edges.length];i++;
+    var s=eds[i%eds.length];i++;
     var p=document.createElementNS(NS,'path');
-    p.setAttribute('class','nl-p');p.setAttribute('d',src.getAttribute('d'));
-    g.appendChild(p);
-    var L=p.getTotalLength();
-    p.style.strokeDasharray='12 '+L;p.style.opacity='1';
-    p.animate([{strokeDashoffset:L+12},{strokeDashoffset:0}],
-      {duration:820,easing:'cubic-bezier(.35,0,.25,1)'}).onfinish=function(){p.remove()};
-   },560);
+    p.setAttribute('class','np');p.setAttribute('d',s.getAttribute('d'));g.appendChild(p);
+    var L=p.getTotalLength();p.style.strokeDasharray='13 '+L;
+    p.animate([{strokeDashoffset:L+13},{strokeDashoffset:0}],
+     {duration:840,easing:'cubic-bezier(.35,0,.25,1)'}).onfinish=function(){p.remove()};
+   },620);
   }
+  if(reduce) netg.classList.add('on');
+  else{var n1=false;new IntersectionObserver(function(es){es.forEach(function(e){
+   if(e.isIntersecting&&!n1){n1=true;netg.classList.add('on');setTimeout(pulse,900)}})},
+   {threshold:.32}).observe(netg);}
  }
 
- /* capability bars grow when a tab is shown */
- function growBars(scope){
-  (scope||document).querySelectorAll('.bar i').forEach(function(el){
-   if(reduce)return;
-   var w=el.style.width;el.style.width='0';
-   setTimeout(function(){el.style.transition='width .8s var(--e)';el.style.width=w},40);
-  });
- }
- var pn=document.getElementById('panes');
- if(pn){
-  var pobs=new IntersectionObserver(function(es){es.forEach(function(e){
-   if(e.isIntersecting){growBars(pn);pobs.unobserve(e.target)}})},{threshold:.4});
-  pobs.observe(pn);
-  document.getElementById('tabs').addEventListener('click',function(){
-   setTimeout(function(){growBars(pn)},60)});
- }
-
+ /* platform tabs */
+ var T=[
+  {k:'Assess',h:'Know exactly where the venture stands',
+   p:'A full diagnosis, not a score out of ten. Four dimensions and fifteen sub-pillars, measured against what is meaningful at your stage, every score traced to the evidence that produced it.',
+   li:['Your own figures recalculated from source','Confidence reported beside every score','Gaps recorded rather than guessed','Blocking items ordered by cost to clear'],
+   t:'Venture assessment',r:'32 of 105 measures',
+   b:'<div class="ln"><span class="k">Desirability</span><span class="bar"><i data-w="58%"></i></span><span class="v">58</span></div>'+
+     '<div class="ln"><span class="k">Viability</span><span class="bar"><i class="low" data-w="41%"></i></span><span class="v r">41</span></div>'+
+     '<div class="ln"><span class="k">Feasibility</span><span class="bar"><i data-w="54%"></i></span><span class="v">54</span></div>'+
+     '<div class="ln"><span class="k">Impact, as ESG</span><span class="bar"><i data-w="52%"></i></span><span class="v">52</span></div>'+
+     '<div class="ln"><span class="k">Confidence</span><span class="v a">0.38</span></div>'},
+  {k:'Build',h:'From idea generation to investment readiness',
+   p:'The widest part of the platform. The agentic team runs ideation, market, strategy, the eight tactical areas, the financial model and brand, drafting each section and waiting for your approval.',
+   li:['Idea generation, targeting and validation','Market counted from source, never estimated','A live financial model, not a template','Brand, product, commercial, legal, operations','Every section approved by you before it lands'],
+   t:'Investment case',r:'42 sections',
+   b:'<div class="ln"><span class="k">Ideation and validation</span><span class="v g">approved</span></div>'+
+     '<div class="ln"><span class="k">Market context</span><span class="v g">approved</span></div>'+
+     '<div class="ln"><span class="k">Strategy and model</span><span class="v g">approved</span></div>'+
+     '<div class="ln"><span class="k">Tactical, 8 areas</span><span class="v g">7 of 8</span></div>'+
+     '<div class="ln"><span class="k">Financial model</span><span class="v g">approved</span></div>'+
+     '<div class="ln"><span class="k">Investment readiness</span><span class="v a">in draft</span></div>'},
+  {k:'Raise',h:'Full pipeline management, run as the raise behaves',
+   p:'Investor materials, valuation, cap table and terms, then the pipeline itself. Deals stall, reverse and die, so every movement is captured with its reason and nothing is lost between rounds.',
+   li:['Teaser, deck, data room, valuation and terms','Pipeline across nine stages, drag and drop','Every stage move recorded with its reason','A pass now becomes a warm contact later','Materials withheld until evidence supports them'],
+   t:'Fundraising pipeline',r:'11 investors',
+   b:'<div class="kan"><div><b>4</b>scouting</div><div><b>3</b>align</div>'+
+     '<div class="hot"><b>2</b>disclose</div><div><b>1</b>commit</div></div>'+
+     '<div class="ln" style="margin-top:11px"><span class="k">Delta Seed</span><span class="v a">overdue 5d</span></div>'+
+     '<div class="ln"><span class="k">Levant Ventures</span><span class="v">terms received</span></div>'+
+     '<div class="ln"><span class="k">Committed</span><span class="v g">EGP 1.2M of 3.2M</span></div>'},
+  {k:'Watch',h:'See everything the agentic team is doing',
+   p:'The command centre is the window onto the network: what each agent is working on, what is waiting on a decision from you, and where two agents disagree.',
+   li:['Every run visible and interruptible','Contradictions raised, never resolved silently','Approvals queued in one place','Capacity shown as work done, not as a bill'],
+   t:'Command centre',r:'live',
+   b:'<div class="ln"><span class="k">Build, financial model</span><span class="v g">running</span></div>'+
+     '<div class="ln"><span class="k">Needs your decision</span><span class="v a">3</span></div>'+
+     '<div class="ln"><span class="k">Contradiction raised</span><span class="v r">1</span></div>'+
+     '<div class="ln"><span class="k">Sections approved</span><span class="v">42 this month</span></div>'}
+ ];
+ var tabs=document.getElementById('tabs'),panes=document.getElementById('panes');
+ function grow(sc){ (sc||document).querySelectorAll('.bar i').forEach(function(el){
+   var w=el.dataset.w||el.style.width; el.style.width='0';
+   setTimeout(function(){el.style.width=w},60)}); }
+ T.forEach(function(t,i){
+  var b=document.createElement('button');b.type='button';b.className='tb'+(i===0?' on':'');b.textContent=t.k;
+  b.onclick=function(){
+   tabs.querySelectorAll('.tb').forEach(function(x){x.classList.remove('on')});b.classList.add('on');
+   panes.querySelectorAll('.pane').forEach(function(x){x.classList.remove('on')});
+   panes.children[i].classList.add('on');grow(panes.children[i]);};
+  tabs.appendChild(b);
+  var d=document.createElement('div');d.className='pane'+(i===0?' on':'');
+  d.innerHTML='<div class="pl"><h3>'+t.h+'</h3><p>'+t.p+'</p><ul>'+
+   t.li.map(function(l){return '<li><i>&#10003;</i>'+l+'</li>'}).join('')+'</ul></div>'+
+   '<div class="pr"><div class="scr"><div class="scr-h"><span class="dt"></span>'+t.t+
+   '<span class="rr">'+t.r+'</span></div><div class="scr-b">'+t.b+'</div></div></div>';
+  panes.appendChild(d);
+ });
+ var po=new IntersectionObserver(function(es){es.forEach(function(e){
+  if(e.isIntersecting){grow(panes);po.unobserve(e.target)}})},{threshold:.35});
+ po.observe(panes);
 })();
 </script>
 </body></html>
